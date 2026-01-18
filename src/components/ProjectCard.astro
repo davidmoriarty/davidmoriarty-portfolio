@@ -1,0 +1,37 @@
+---
+import Heading from "./Heading.astro";
+import { cn } from "../utils/cn";
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  tags?: string[];
+}
+
+const { title, description, href, tags = [] } = Astro.props;
+---
+
+<a
+  href={href}
+  class={cn(
+    "block rounded-lg border p-6 transition",
+    "border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800",
+  )}
+>
+  <Heading level={3} class="mb-2">{title}</Heading>
+
+  <p class={cn("text-sm mb-4", "text-gray-700 dark:text-gray-300")}>
+    {description}
+  </p>
+
+  {
+    tags.length > 0 && (
+      <ul class="flex flex-wrap gap-2 text-xs">
+        {tags.map((tag) => (
+          <li class={cn("rounded px-2 py-1", "bg-gray-200 dark:bg-gray-700")}>{tag}</li>
+        ))}
+      </ul>
+    )
+  }
+</a>

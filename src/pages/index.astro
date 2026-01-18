@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import Heading from "../components/Heading.astro";
+import { cn } from "../utils/cn";
+import { projects } from "../data/projects";
+---
+
+<Layout title="Home">
+  <!-- Hero Section -->
+  <Section>
+    <Container class="max-w-2xl">
+      <Heading level={1}>David Moriarty</Heading>
+      <p class="mt-4 text-lg leading-relaxed">
+        Full-stack software developer building clean, performant, and accessible web applications.
+      </p>
+
+      <p class="mt-6 text-base leading-relaxed">
+        I design and build modern web applications with a focus on clarity, maintainability, and choosing the right
+        level of abstraction for the problem at hand.
+      </p>
+
+      <div class="mt-8 flex gap-4">
+        <a
+          href="/projects"
+          class={cn(
+            "inline-flex items-center justify-center rounded-md px-6 py-3 font-medium",
+            "bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200",
+          )}
+        >
+          View Projects
+        </a>
+
+        <a
+          href="https://github.com/davidmoriarty"
+          class={cn(
+            "inline-flex items-center justify-center rounded-md px-6 py-3 font-medium border",
+            "border-gray-300 hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800",
+          )}
+        >
+          GitHub
+        </a>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- What I work with -->
+  <Section>
+    <Container class="max-w-3xl space-y-4">
+      <Heading level={2}>What I work with</Heading>
+      <p class="text-lg">A pragmatic approach to modern full-stack development.</p>
+
+      <p>
+        I work across the full stack, from semantic HTML and modern CSS to backend APIs and data modeling. Depending on
+        the problem, that may mean a lightweight Bun-based site, or a full Ruby on Rails application with richer backend
+        logic.
+      </p>
+
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+        <li>• TypeScript, JavaScript, HTML, CSS (Tailwind)</li>
+        <li>• Astro, React, Hono, TanStack</li>
+        <li>• Bun, Node.js</li>
+        <li>• PostgreSQL, SQLite</li>
+        <li>• Cloudflare, Fly.io, Vercel</li>
+        <li>• Ruby on Rails</li>
+      </ul>
+    </Container>
+  </Section>
+
+  <!-- Selected Work -->
+  <Section>
+    <Container class="max-w-3xl">
+      <Heading level={2}>Selected work</Heading>
+      <p class="mt-4">
+        These projects reflect how I design, structure, and ship real applications — with an emphasis on maintainability
+        and real-world constraints.
+      </p>
+
+      <div class="mt-8">
+        <a
+          href="/projects"
+          class={cn("font-medium underline underline-offset-4", "hover:text-gray-700 dark:hover:text-gray-300")}
+        >
+          View all projects →
+        </a>
+      </div>
+    </Container>
+  </Section>
+</Layout>

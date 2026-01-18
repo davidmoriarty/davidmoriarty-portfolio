@@ -1,0 +1,32 @@
+# Build and Cache Outputs
+.astro/
+dist/
+build/
+out/
+
+# Dependencies & Locks
+node_modules/
+bun.lock
+
+# Environment Variables
+.env
+.env.production
+.env.local
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE & OS Specific
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs & Temporary Files
+*.log*
+*.tmp
+tmp/
+
+# Optional: Specific to Tailwind/Astro if generated
+.vercel/
