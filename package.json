@@ -13,5 +13,8 @@
     "astro": "^5.16.11",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@astrojs/cloudflare": "^12.6.12"
   }
 }
