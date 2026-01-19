@@ -5,6 +5,8 @@ import Container from "../../components/Container.astro";
 import Heading from "../../components/Heading.astro";
 import { cn } from "../../utils/cn";
 import { projects } from "../../data/projects";
+import { tagColors } from "../../utils/tagColors";
+import { tagIcons } from "../../utils/tagIcons";
 
 // 🔹 Export static paths for Astro
 export async function getStaticPaths() {
@@ -21,7 +23,8 @@ const project = projects.find((p) => p.slug === slug);
 if (!project) {
   throw new Error(`Project not found: ${slug}`);
 }
-const { title, description, tags } = project;
+
+const { title, description, tags = [], screenshot } = project;
 ---
 
 <Layout title={title}>
@@ -32,11 +35,45 @@ const { title, description, tags } = project;
 
       {
         tags.length > 0 && (
-          <ul class="mt-4 flex flex-wrap gap-2 text-xs">
-            {tags.map((tag) => (
-              <li class={cn("rounded px-2 py-1 bg-gray-200 dark:bg-gray-700")}>{tag}</li>
-            ))}
+          <ul class="mt-4 mb-6 flex flex-wrap gap-2 text-xs">
+            {tags.map((tag) => {
+              const { light, dark, text } = tagColors[tag] ?? {
+                light: "bg-gray-200",
+                dark: "bg-gray-700",
+                text: "text-gray-800 dark:text-gray-200",
+              };
+              return (
+                <li
+                  class={cn(
+                    "inline-flex items-center gap-1.5 rounded font-bold text-xs px-2 py-1.5",
+                    light,
+                    "dark:" + dark,
+                    text,
+                  )}
+                >
+                  {tagIcons[tag] &&
+                    (() => {
+                      const Icon = tagIcons[tag];
+                      return <Icon class="w-3.5 h-3.5 text-current" />;
+                    })()}
+                  <span>{tag}</span>
+                </li>
+              );
+            })}
           </ul>
+        )
+      }
+
+      {
+        screenshot && (
+          <img
+            src={screenshot}
+            alt={`Screenshot of ${title}`}
+            class={cn(
+              "w-full h-auto aspect-video object-cover object-center rounded-t-lg border-b border-gray-300 dark:border-gray-700",
+            )}
+            loading="lazy"
+          />
         )
       }
 

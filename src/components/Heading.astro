@@ -17,48 +17,19 @@ const sizeClasses: Record<number, string> = {
   6: "text-lg md:text-xl",
 };
 
-const classes = cn("font-bold", sizeClasses[level], className);
+const weightClasses: Record<number, string> = {
+  1: "font-extrabold",
+  2: "font-black",
+  3: "font-bold",
+  4: "font-bold",
+  5: "font-semibold",
+  6: "font-medium",
+};
+
+const classes = cn(weightClasses[level], sizeClasses[level], className);
+const Tag = `h${level}` as keyof HTMLElementTagNameMap;
 ---
 
-{
-  level === 1 && (
-    <h1 class={classes}>
-      <slot />
-    </h1>
-  )
-}
-{
-  level === 2 && (
-    <h2 class={classes}>
-      <slot />
-    </h2>
-  )
-}
-{
-  level === 3 && (
-    <h3 class={classes}>
-      <slot />
-    </h3>
-  )
-}
-{
-  level === 4 && (
-    <h4 class={classes}>
-      <slot />
-    </h4>
-  )
-}
-{
-  level === 5 && (
-    <h5 class={classes}>
-      <slot />
-    </h5>
-  )
-}
-{
-  level === 6 && (
-    <h6 class={classes}>
-      <slot />
-    </h6>
-  )
-}
+<Tag class={classes}>
+  <slot />
+</Tag>

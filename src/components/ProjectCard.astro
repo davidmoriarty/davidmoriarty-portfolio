@@ -1,37 +1,78 @@
 ---
 import Heading from "./Heading.astro";
 import { cn } from "../utils/cn";
+import { tagColors } from "../utils/tagColors";
+import { tagIcons } from "../utils/tagIcons";
 
 interface Props {
   title: string;
   description: string;
   href: string;
   tags?: string[];
+  screenshot?: string;
 }
 
-const { title, description, href, tags = [] } = Astro.props;
+const { title, description, href, tags = [], screenshot } = Astro.props;
 ---
 
 <a
   href={href}
   class={cn(
-    "block rounded-lg border p-6 transition",
-    "border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800",
+    "block rounded-lg border transition-transform transition-shadow",
+    "border-gray-300 hover:bg-gray-100",
+    "dark:border-gray-500 dark:hover:bg-gray-950",
+    "hover:shadow-md hover:scale-[1.02] ",
   )}
 >
-  <Heading level={3} class="mb-2">{title}</Heading>
-
-  <p class={cn("text-sm mb-4", "text-gray-700 dark:text-gray-300")}>
-    {description}
-  </p>
-
   {
-    tags.length > 0 && (
-      <ul class="flex flex-wrap gap-2 text-xs">
-        {tags.map((tag) => (
-          <li class={cn("rounded px-2 py-1", "bg-gray-200 dark:bg-gray-700")}>{tag}</li>
-        ))}
-      </ul>
+    screenshot && (
+      <img
+        src={screenshot}
+        alt={`Screenshot of ${title}`}
+        class={cn(
+          "w-full h-auto aspect-video object-cover object-center rounded-t-lg border-b border-gray-300 dark:border-gray-700",
+        )}
+        loading="lazy"
+      />
     )
   }
+
+  <div class="flex flex-col items-center justify-center gap-4 pt-4 pb-6">
+    <Heading level={3}>{title}</Heading>
+
+    <p class="text-md tracking-tight text-center max-w-[30ch] leading-relaxed">
+      {description}
+    </p>
+
+    {
+      tags.length > 0 && (
+        <ul class="flex flex-wrap gap-1 text-xs mt-2">
+          {tags.map((tag) => {
+            const { light, dark, text } = tagColors[tag] ?? {
+              light: "bg-gray-300",
+              dark: "bg-gray-700",
+              text: "text-black dark:text-white",
+            };
+            return (
+              <li
+                class={cn(
+                  "inline-flex items-center gap-1.5 rounded font-bold text-xs px-2 py-1.5",
+                  light,
+                  "dark:" + dark,
+                  text,
+                )}
+              >
+                {tagIcons[tag] &&
+                  (() => {
+                    const Icon = tagIcons[tag];
+                    return <Icon class="w-3.5 h-3.5 text-current" />;
+                  })()}
+                <span>{tag}</span>
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
+  </div>
 </a>

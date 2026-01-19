@@ -1,0 +1,21 @@
+// src/utils/tagColors.ts
+export const tagColors: Record<string, { light: string; dark: string; text: string }> = {
+  "Astro": { light: "bg-[#FF5D01]", dark: "bg-[#b33f00]", text: "text-white" },
+  "Bun": { light: "bg-[#FF3E00]", dark: "bg-[#b32d00]", text: "text-white" },
+  "Cloudflare": { light: "bg-[#F38020]", dark: "bg-[#a35a17]", text: "text-white" },
+  "CSS": { light: "bg-[#1572B6]", dark: "bg-[#0f4a75]", text: "text-white" },
+  "Fly.io": { light: "bg-[#2B2B2B]", dark: "bg-[#1a1a1a]", text: "text-white" },
+  "Hono": { light: "bg-[#0078D4]", dark: "bg-[#005a9c]", text: "text-white" },
+  "HTML": { light: "bg-[#E34F26]", dark: "bg-[#a32f1e]", text: "text-white" },
+  "JavaScript": { light: "bg-[#F7DF1E]", dark: "bg-[#bfbf00]", text: "text-black" },
+  "Node.js": { light: "bg-[#43853d]", dark: "bg-[#2c5525]", text: "text-white" },
+  "PostgreSQL": { light: "bg-[#336791]", dark: "bg-[#1f4560]", text: "text-white" },
+  "React": { light: "bg-[#61DAFB]", dark: "bg-[#3fb0c4]", text: "text-black" },
+  "Ruby on Rails": { light: "bg-[#CC0000]", dark: "bg-[#800000]", text: "text-white" },
+  "Shadcn UI": { light: "bg-black", dark: "bg-black", text: "text-white" },
+  "SQLite": { light: "bg-[#003B57]", dark: "bg-[#001f2c]", text: "text-white" },
+  "Tailwind": { light: "bg-[#06B6D4]", dark: "bg-[#0ea5c1]", text: "text-black" },
+  "TanStack": { light: "bg-[#FF3E00]", dark: "bg-[#b32d00]", text: "text-white" },
+  "TypeScript": { light: "bg-[#3178C6]", dark: "bg-[#215a8a]", text: "text-white" },
+  "Vercel": { light: "bg-[#000000]", dark: "bg-[#333333]", text: "text-white" },
+};

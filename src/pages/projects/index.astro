@@ -4,44 +4,15 @@ import Section from "../../components/Section.astro";
 import Container from "../../components/Container.astro";
 import Heading from "../../components/Heading.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
-
-const projects = [
-  {
-    title: "Task Manager",
-    description: "Personal productivity app with task CRUD, categories, and filters",
-    href: "/projects/task-manager",
-    tags: ["TypeScript", "Astro", "Tailwind"],
-  },
-  {
-    title: "Notes App",
-    description: "Modern notes application with local storage and cloud sync",
-    href: "/projects/notes-app",
-    tags: ["TypeScript", "React", "Bun"],
-  },
-  {
-    title: "Finance Dashboard",
-    description: "Interactive dashboard with charts and real-time data visualization",
-    href: "/projects/finance-dashboard",
-    tags: ["Astro", "React", "TanStack"],
-  },
-  {
-    title: "CLI + Web UI",
-    description: "Command-line and web interface for unified workflows",
-    href: "/projects/cli-web-ui",
-    tags: ["Node.js", "TypeScript"],
-  },
-  {
-    title: "Auth Starter",
-    description: "Boilerplate authentication system with best practices",
-    href: "/projects/auth-starter",
-    tags: ["Bun", "Hono", "TanStack"],
-  },
-];
+import { projects } from "../../data/projects";
+import { tagColors } from "../../utils/tagColors";
+import { tagIcons } from "../../utils/tagIcons";
+import { cn } from "../../utils/cn";
 ---
 
 <Layout title="Projects">
   <Section>
-    <Container class="max-w-4xl">
+    <Container class="max-w-7xl">
       <Heading level={1} class="mb-6">Projects</Heading>
 
       <p class="mb-8 text-lg">
@@ -54,12 +25,46 @@ const projects = [
             <ProjectCard
               title={project.title}
               description={project.description}
-              href={project.href}
+              href={`/projects/${project.slug}`}
               tags={project.tags}
+              screenshot={project.screenshot}
             />
           ))
         }
       </div>
+    </Container>
+  </Section>
+
+  <Section>
+    <Container class="max-w-7xl">
+      <Heading level={1} class="mb-6">Tags</Heading>
+
+      <ul class="flex flex-wrap gap-2">
+        {
+          Object.keys(tagColors)
+            .sort()
+            .map((tag) => {
+              const { light, dark, text } = tagColors[tag];
+              return (
+                <li
+                  class={cn(
+                    "inline-flex items-center gap-1.5 rounded px-3 py-1.5 font-bold text-xs",
+                    light,
+                    "dark:" + dark,
+                    text,
+                  )}
+                >
+                  {tagIcons[tag] &&
+                    (() => {
+                      const Icon = tagIcons[tag];
+                      return <Icon class="w-4 h-4 text-current" />;
+                    })()}
+                  <span>{tag}</span>
+                </li>
+              );
+            })
+        }
+      </ul>
     </Container>
   </Section>
 </Layout>

@@ -4,7 +4,6 @@ import Section from "../components/Section.astro";
 import Container from "../components/Container.astro";
 import Heading from "../components/Heading.astro";
 import { cn } from "../utils/cn";
-import { projects } from "../data/projects";
 ---
 
 <Layout title="Home">
@@ -12,6 +11,7 @@ import { projects } from "../data/projects";
   <Section>
     <Container class="max-w-2xl">
       <Heading level={1}>David Moriarty</Heading>
+
       <p class="mt-4 text-lg leading-relaxed">
         Full-stack software developer building clean, performant, and accessible web applications.
       </p>
@@ -49,6 +49,7 @@ import { projects } from "../data/projects";
   <Section>
     <Container class="max-w-3xl space-y-4">
       <Heading level={2}>What I work with</Heading>
+
       <p class="text-lg">A pragmatic approach to modern full-stack development.</p>
 
       <p>
@@ -72,6 +73,7 @@ import { projects } from "../data/projects";
   <Section>
     <Container class="max-w-3xl">
       <Heading level={2}>Selected work</Heading>
+
       <p class="mt-4">
         These projects reflect how I design, structure, and ship real applications — with an emphasis on maintainability
         and real-world constraints.
