@@ -24,7 +24,8 @@ if (!project) {
   throw new Error(`Project not found: ${slug}`);
 }
 
-const { title, description, tags = [], screenshot } = project;
+const { title, description, tags = [], screenshots = [] } = project;
+const screenshot = screenshots[0];
 ---
 
 <Layout title={title}>
@@ -68,9 +69,9 @@ const { title, description, tags = [], screenshot } = project;
         screenshot && (
           <img
             src={screenshot}
-            alt={`Screenshot of ${title}`}
+            alt={`${title} screenshot`}
             class={cn(
-              "w-full h-auto aspect-video object-cover object-center rounded-t-lg border-b border-gray-300 dark:border-gray-700",
+              "w-full h-auto aspect-video object-contain object-center rounded-t-lg border-b border-gray-300 dark:border-gray-700",
             )}
             loading="lazy"
           />
