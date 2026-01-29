@@ -21,6 +21,7 @@ const { title } = Astro.props;
       content="Full-stack software developer portfolio showcasing modern web applications built with Astro, Bun, and Tailwind CSS."
     />
     <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{setTitle(title)}</title>
   </head>
