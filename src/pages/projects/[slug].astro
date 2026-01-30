@@ -15,24 +15,47 @@ export async function getStaticPaths() {
   }));
 }
 
-// Grab the slug from the route
 const { slug } = Astro.params;
-
-// Find the project
 const project = projects.find((p) => p.slug === slug);
 if (!project) {
   throw new Error(`Project not found: ${slug}`);
 }
 
-const { title, description, tags = [], screenshots = [] } = project;
+const { title, description, tags = [], screenshots = [], stack, features = [], repoUrl, liveUrl } = project;
+
+const ogImage = screenshots[0] ?? "/images/og/default.png";
+const pageUrl = new URL(`/projects/${project.slug}/`, Astro.site).toString();
+
 const screenshot = screenshots[0];
+
+// JSON-LD Project (SoftwareSourceCode works well for GitHub projects)
+const projectJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  name: title,
+  description,
+  url: pageUrl,
+  codeRepository: repoUrl,
+  programmingLanguage: (tags ?? []).filter(Boolean),
+  keywords: (tags ?? []).filter(Boolean).join(", "),
+  image: screenshots.map((s) => (s.startsWith("http") ? s : new URL(s, Astro.site).toString())),
+  author: {
+    "@type": "Person",
+    name: "David Moriarty",
+    url: new URL("/", Astro.site).toString(),
+  },
+  ...(liveUrl ? { sameAs: [liveUrl] } : {}),
+};
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description} ogImage={ogImage}>
   <Section>
     <Container class="max-w-3xl">
       <Heading level={1}>{title}</Heading>
       <p class="mt-4 text-lg">{description}</p>
+
+      {/* JSON-LD Project */}
+      <script type="application/ld+json" set:html={JSON.stringify(projectJsonLd)} />
 
       {
         tags.length > 0 && (
@@ -69,12 +92,59 @@ const screenshot = screenshots[0];
         screenshot && (
           <img
             src={screenshot}
-            alt={`${title} screenshot`}
+            alt={`Screenshot of ${title}`}
             class={cn(
               "w-full h-auto aspect-video object-contain object-center rounded-t-lg border-b border-gray-300 dark:border-gray-700",
             )}
             loading="lazy"
           />
+        )
+      }
+
+      {
+        (repoUrl || liveUrl) && (
+          <div class="mt-6 flex flex-wrap gap-3">
+            {repoUrl && (
+              <a
+                href={repoUrl}
+                class={cn(
+                  "inline-flex items-center justify-center rounded-md px-4 py-2 font-medium border",
+                  "border-gray-300 hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800",
+                )}
+              >
+                View repo
+              </a>
+            )}
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                class={cn(
+                  "inline-flex items-center justify-center rounded-md px-4 py-2 font-medium",
+                  "bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-200",
+                )}
+              >
+                Live demo
+              </a>
+            )}
+          </div>
+        )
+      }
+
+      {
+        stack && (
+          <p class="mt-6 text-sm text-gray-600 dark:text-gray-300">
+            <strong>Stack:</strong> {stack}
+          </p>
+        )
+      }
+
+      {
+        features.length > 0 && (
+          <ul class="mt-4 list-disc pl-5 space-y-1">
+            {features.map((f) => (
+              <li>{f}</li>
+            ))}
+          </ul>
         )
       }
 

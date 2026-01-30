@@ -6,9 +6,33 @@ import { setTitle } from "../utils/title";
 
 interface Props {
   title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalPath?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Full-stack software developer building clean, performant, and accessible web applications.",
+  ogImage = "/images/og/default.png",
+  canonicalPath,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro.site).toString();
+
+const fullTitle = setTitle(title);
+
+// JSON-LD Person (site-wide)
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "David Moriarty",
+  url: new URL("/", Astro.site).toString(),
+  jobTitle: "Full-stack Software Developer",
+  description,
+  sameAs: ["https://github.com/davidmoriarty", "https://linkedin.com/in/david-moriarty-248b4970"],
+};
 ---
 
 <html lang="en" class="h-full scroll-smooth font-sans antialiased">
@@ -16,25 +40,37 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Full-stack software developer portfolio showcasing modern web applications built with Astro, Bun, and Tailwind CSS."
-    />
+    <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>{setTitle(title)}</title>
+
+    <title>{fullTitle}</title>
+
+    {/* Open Graph */}
+    <meta property="og:site_name" content="David Moriarty" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    {/* JSON-LD: Person */}
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
   </head>
 
   <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-    <!-- Navbar component -->
     <Navbar />
-
     <main class="flex flex-col flex-1">
       <slot />
     </main>
-
-    <!-- Footer component -->
     <Footer />
   </body>
 </html>

@@ -1,0 +1,32 @@
+.resume {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  font-family: Inter, system-ui, sans-serif;
+  color: #111;
+}
+
+.resume section {
+  margin-top: 32px;
+}
+
+.resume h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.resume h2 {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.resume p,
+.resume li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}

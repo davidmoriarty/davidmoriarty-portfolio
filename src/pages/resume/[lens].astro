@@ -1,0 +1,34 @@
+---
+// src/pages/resume/[lens].astro
+import ResumeLayout from "../../layouts/ResumeLayout.astro";
+import ResumeView from "../../components/resume/ResumeView.astro";
+
+import { resumeCore } from "../../data/resume/core";
+import { resumeLenses } from "../../data/resume/lenses";
+import { resumeProjects } from "../../data/resume/projects";
+import { resumeSkillModules } from "../../data/resume/skills";
+import { isDefined } from "../../data/resume/utils";
+
+export async function getStaticPaths() {
+  return resumeLenses.map((l) => ({
+    params: { lens: l.id },
+  }));
+}
+
+const { lens: lensId } = Astro.params;
+
+const lens = resumeLenses.find((l) => l.id === lensId);
+if (!lens) throw new Error(`Resume lens not found: ${lensId}`);
+
+const selectedProjects = lens.recommended.projects
+  .map((id) => resumeProjects.find((p) => p.id === id))
+  .filter(isDefined);
+
+const selectedSkills = lens.recommended.skillModules
+  .map((id) => resumeSkillModules.find((m) => m.id === id))
+  .filter(isDefined);
+---
+
+<ResumeLayout title={`Resume — ${lens.label}`}>
+  <ResumeView core={resumeCore} lens={lens} projects={selectedProjects} skills={selectedSkills} />
+</ResumeLayout>

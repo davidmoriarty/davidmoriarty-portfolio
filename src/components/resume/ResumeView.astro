@@ -1,0 +1,121 @@
+---
+import type { ResumeCore, ResumeLensConfig, ResumeProject, ResumeSkillModule } from "../../data/resume/types";
+
+type Props = {
+  core: ResumeCore;
+  lens: ResumeLensConfig;
+  projects: ResumeProject[];
+  skills: ResumeSkillModule[];
+  showLens?: boolean;
+};
+
+const { core, lens, projects, skills, showLens = false } = Astro.props as Props;
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-8 max-w-3xl">
+    <header class="space-y-2">
+      <h1 class="text-4xl font-black">{core.name}</h1>
+      <p class="text-lg">{core.title}{core.location ? ` · ${core.location}` : ""}</p>
+
+      <p class="text-sm text-gray-600 dark:text-gray-300">
+        <a class="underline underline-offset-4" href={core.links.portfolio}>Portfolio</a>
+        <span> · </span>
+        <a class="underline underline-offset-4" href={core.links.github}>GitHub</a>
+        {
+          core.links.linkedin && (
+            <>
+              <span> · </span>
+              <a class="underline underline-offset-4" href={core.links.linkedin}>
+                LinkedIn
+              </a>
+            </>
+          )
+        }
+      </p>
+
+      {showLens && <p class="text-sm text-muted mt-1">Lens: {lens.label}</p>}
+
+      {
+        core.sectionOrder.includes("summary") && (
+          <section class="mt-8">
+            <h2 class="text-xl font-bold">Summary</h2>
+            <ul class="mt-3 list-disc pl-5 space-y-1">
+              {core.summary.map((line) => (
+                <li>{line}</li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        core.sectionOrder.includes("projects") && (
+          <section class="mt-8">
+            <h2 class="text-xl font-bold">Projects</h2>
+
+            <div class="mt-4 space-y-6">
+              {projects.map((p) => (
+                <article class="rounded-lg border border-gray-200 dark:border-gray-700 p-5">
+                  <div class="flex flex-col gap-2">
+                    <div class="flex items-baseline justify-between gap-4 flex-wrap">
+                      <h3 class="text-lg font-semibold">{p.title}</h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-300">{p.stackLine}</p>
+                    </div>
+
+                    <ul class="mt-2 list-disc pl-5 space-y-1">
+                      {p.bullets.slice(0, 3).map((b) => (
+                        <li>{b}</li>
+                      ))}
+                    </ul>
+
+                    {(p.links?.repo || p.links?.live) && (
+                      <p class="mt-3 text-sm">
+                        {p.links?.repo && (
+                          <>
+                            <a class="underline underline-offset-4" href={p.links.repo}>
+                              Repo
+                            </a>
+                          </>
+                        )}
+                        {p.links?.repo && p.links?.live && <span> · </span>}
+                        {p.links?.live && (
+                          <a class="underline underline-offset-4" href={p.links.live}>
+                            Details
+                          </a>
+                        )}
+                      </p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        core.sectionOrder.includes("skills") && (
+          <section class="mt-8">
+            <h2 class="text-xl font-bold">Skills</h2>
+
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              {skills.map((m) => (
+                <div class="rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                  <h3 class="font-semibold">{m.label}</h3>
+                  <ul class="mt-2 list-disc pl-5 space-y-1 text-sm">
+                    {m.bullets.slice(0, 2).map((b) => (
+                      <li>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {/* Experience + Education can render later once those pools exist */}
+    </header>
+  </div>
+</section>

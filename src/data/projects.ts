@@ -8,6 +8,8 @@ export const projects = [
     description: "A no-build, standards-first microsite demonstrating semantic HTML, responsive CSS, and progressive enhancement.",
     why: "Showcase core web fundamentals (semantic HTML, accessibility, responsive layout, progressive enhancement) without frameworks.",
     stack: "HTML5 + CSS3 + Vanilla JS",
+    repoUrl: "https://github.com/davidmoriarty/baseline-web",
+    liveUrl: "https://baseline-web.pages.dev",
     features: [
       "Semantic landmarks + skip link + visible focus styles",
       "Responsive navigation with keyboard/ESC support",
@@ -16,10 +18,10 @@ export const projects = [
     ],
     tags: ["HTML", "CSS", "JavaScript", "Accessibility", "Progressive Enhancement"],
     screenshots: [
+      "/images/screenshots/baselineweb-gallery.png",
       "/images/screenshots/baselineweb-home.png",
       "/images/screenshots/baselineweb-blog.png",
       "/images/screenshots/baselineweb-article.png",
-      "/images/screenshots/baselineweb-gallery.png",
       "/images/screenshots/baselineweb-contact.png",
     ],
   },
@@ -30,6 +32,8 @@ export const projects = [
     description: "Fundamentals-first Express app with sessions, SQLite persistence, and a server-rendered dashboard for task management.",
     why: "Demonstrate classic backend patterns common in production Express apps: sessions, auth, CRUD, and server-rendered UI.",
     stack: "Node.js + Express + EJS + SQLite (better-sqlite3)",
+    repoUrl: "https://github.com/davidmoriarty/taskledger",
+    liveUrl: "",
     features: [
       "Session-based authentication (register/login/logout)",
       "Protected routes + server-rendered dashboard",
@@ -49,6 +53,8 @@ export const projects = [
     description: "Personal productivity app with task CRUD, categories, and filters.",
     why: "Essentials of Routing, CRUD APIs, Authentication, and Shared Types.",
     stack: "BHVR: Bun + Hono (RPC) + React (Vite) + TanStack Router & Query + TailwindCSS + ShadCN/ui",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "Bun API CRUD routes (/tasks, /auth/login, /auth/register)",
       "React Frontend UI with basic routing (/login, /tasks)",
@@ -68,6 +74,8 @@ export const projects = [
     description: "Write, preview, and manage notes in Markdown with cloud sync.",
     why: "Tiny Notion-like app to experiment with real-time sync, file storage, and Prisma integration.",
     stack: "BHVR + Prisma + PostgreSQL",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "React Markdown Editor with live preview panel",
       "Prisma database integration",
@@ -86,6 +94,8 @@ export const projects = [
     description: "Interactive dashboard for tracking currencies, expenses, and investments.",
     why: "Combine front-end data visualization with back-end data aggregation.",
     stack: "BHVR + Recharts",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "Landing page with What, Why, How, and CTA flow",
       "Overview dashboard with real-time charts",
@@ -105,6 +115,8 @@ export const projects = [
     description: "Command-line tool and web interface sharing backend logic.",
     why: "Demonstrate full-stack logic reuse and CLI + Web integration.",
     stack: "BHVR",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "Bun CLI tool to run commands",
       "React Web Frontend displaying same data",
@@ -122,6 +134,8 @@ export const projects = [
     description: "Reusable full-stack starter kit for authentication and dashboard apps.",
     why: "Provide a boilerplate SaaS template for rapid project bootstrapping.",
     stack: "BHVR",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "React frontend with authentication (login/signup)",
       "Bun API with JWT auth",
@@ -140,6 +154,8 @@ export const projects = [
     description: "Small multi-tenant SaaS with authentication and CRUD functionality.",
     why: "Showcase a production-ready, full-stack SaaS app with admin workflows.",
     stack: "Next.js, TypeScript, PostgreSQL, Prisma",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "Authentication + OAuth",
       "Role-Based Access Control (RBAC)",
@@ -159,6 +175,8 @@ export const projects = [
     description: "App with full multi-language and locale support.",
     why: "Demonstrate advanced i18n, RTL handling, and locale-specific formatting.",
     stack: "Next.js App Router + Middleware + TanStack Query/Form",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "i18n with language selection",
       "Right-to-left (RTL) awareness",
@@ -176,6 +194,8 @@ export const projects = [
     description: "Combine audio processing and language features in one app.",
     why: "Showcase linguistics, audio processing, and small analytics dashboards.",
     stack: "Rails API or Hono + Node services + PostgreSQL + Tailwind + ShadCN",
+    repoUrl: "",
+    liveUrl: "",
     features: [
       "Speech-to-text transcription",
       "Background job processing with retries and rate limits",

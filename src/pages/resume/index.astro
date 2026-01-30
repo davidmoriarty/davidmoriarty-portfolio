@@ -1,0 +1,28 @@
+---
+// src/pages/resume/index.astro
+import ResumeLayout from "../../layouts/ResumeLayout.astro";
+import ResumeView from "../../components/resume/ResumeView.astro";
+
+import { resumeCore } from "../../data/resume/core";
+import { resumeLenses } from "../../data/resume/lenses";
+import { resumeProjects } from "../../data/resume/projects";
+import { resumeSkillModules } from "../../data/resume/skills";
+import { isDefined } from "../../data/resume/utils";
+
+const lens = resumeLenses.find((l) => l.isDefault) ?? resumeLenses[0];
+if (!lens) {
+  throw new Error(`No resume lenses configured`);
+}
+
+const selectedProjects = lens.recommended.projects
+  .map((id) => resumeProjects.find((p) => p.id === id))
+  .filter(isDefined);
+
+const selectedSkills = lens.recommended.skillModules
+  .map((id) => resumeSkillModules.find((m) => m.id === id))
+  .filter(isDefined);
+---
+
+<ResumeLayout title="Resume">
+  <ResumeView core={resumeCore} lens={lens} projects={selectedProjects} skills={selectedSkills} />
+</ResumeLayout>
