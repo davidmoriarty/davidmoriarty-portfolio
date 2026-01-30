@@ -32,7 +32,7 @@ export const projects = [
     description: "Fundamentals-first Express app with sessions, SQLite persistence, and a server-rendered dashboard for task management.",
     why: "Demonstrate classic backend patterns common in production Express apps: sessions, auth, CRUD, and server-rendered UI.",
     stack: "Node.js + Express + EJS + SQLite (better-sqlite3)",
-    repoUrl: "https://github.com/davidmoriarty/taskledger",
+    repoUrl: "https://github.com/davidmoriarty/task-ledger",
     liveUrl: "",
     features: [
       "Session-based authentication (register/login/logout)",
