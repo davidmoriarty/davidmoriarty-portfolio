@@ -33,7 +33,7 @@ export const projects = [
     why: "Demonstrate classic backend patterns common in production Express apps: sessions, auth, CRUD, and server-rendered UI.",
     stack: "Node.js + Express + EJS + SQLite (better-sqlite3)",
     repoUrl: "https://github.com/davidmoriarty/task-ledger",
-    liveUrl: "",
+    liveUrl: "https://task-ledger.fly.dev",
     features: [
       "Session-based authentication (register/login/logout)",
       "Protected routes + server-rendered dashboard",
