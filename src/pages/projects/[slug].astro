@@ -48,7 +48,7 @@ const projectJsonLd = {
 
 <Layout title={title} description={description} ogImage={ogImage}>
   <Section>
-    <Container class="max-w-3xl">
+    <Container class="max-w-5xl">
       <Heading level={1}>{title}</Heading>
       <p class="mt-4 text-lg">{description}</p>
 
@@ -58,7 +58,7 @@ const projectJsonLd = {
 
     {
       screenshot && (
-        <Container class="py-4 max-w-5xl">
+        <Container class="py-5 max-w-5xl">
           <figure class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
             <img src={screenshot} alt={`${title} screenshot`} class="w-full h-auto" loading="lazy" />
           </figure>
@@ -66,7 +66,7 @@ const projectJsonLd = {
       )
     }
 
-    <Container class="max-w-3xl">
+    <Container class="max-w-3xl pb-4">
       {
         (repoUrl || liveUrl) && (
           <div class="mt-6 flex flex-wrap gap-3">
@@ -100,7 +100,7 @@ const projectJsonLd = {
 
     {
       tags.length > 0 && (
-        <Container class="max-w-3xl">
+        <Container class="max-w-3xl py-2">
           <ul class="mt-4 flex flex-row items-center justify-baseline gap-2 text-xs">
             <li class="font-bold text-lg">Stack:</li>
             {tags.map((tag) => {
