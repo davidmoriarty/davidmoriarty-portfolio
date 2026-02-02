@@ -43,29 +43,32 @@ export const projects = [
     tags: ["Node.js", "Express", "EJS", "SQLite", "Sessions"],
     screenshots: [
       "/images/screenshots/taskledger-dashboard.png",
-      "/images/screenshots/taskledger-login.png"
+      "/images/screenshots/taskledger-login.png",
     ],
   },
   {
     slug: "task-manager",
-    status: "wip",
+    status: "finished",
     title: "Task Manager",
-    description: "Personal productivity app with task CRUD, categories, and filters.",
-    why: "Essentials of Routing, CRUD APIs, Authentication, and Shared Types.",
-    stack: "BHVR: Bun + Hono (RPC) + React (Vite) + TanStack Router & Query + TailwindCSS + ShadCN/ui",
-    repoUrl: "",
-    liveUrl: "",
+    description:
+      "A full-stack task management app built with Bun, Hono, React, and shared TypeScript types.",
+    why:
+      "Demonstrate routing, CRUD APIs, JWT auth, and shared types in a lightweight full-stack monorepo.",
+    stack:
+      "BHVR: Bun + Hono + React (Vite) + TanStack Router & Query + TailwindCSS + shadcn/ui",
+    repoUrl: "https://github.com/davidmoriarty/task-manager",
+    liveUrl: "https://task-manager-client.pages.dev",
     features: [
-      "Bun API CRUD routes (/tasks, /auth/login, /auth/register)",
-      "React Frontend UI with basic routing (/login, /tasks)",
-      "JWT-based authentication stored in HttpOnly cookies",
-      "Shared Types: Task, User, AuthResponse in packages/types"
+      "Auth routes: /auth/signup and /auth/login (demo signup via curl)",
+      "Protected task routes: /tasks, /tasks/:id/toggle, /tasks/:id",
+      "JWT-based auth (token stored client-side) with issuer/audience/expiry validation",
+      "Shared types in /shared used by both client and server",
     ],
-    tags: ["Bun", "Hono", "React", "TanStack", "Tailwind", "ShadCN", "TypeScript"],
+    tags: ["Bun", "Hono", "React", "TanStack", "Tailwind", "Shadcn/ui", "TypeScript"],
     screenshots: [
       "/images/screenshots/taskmanager-tasks.png",
-      "/images/screenshots/taskmanager-login.png"
-    ]
+      "/images/screenshots/taskmanager-login.png",
+    ],
   },
   {
     slug: "notes-app",
@@ -74,8 +77,8 @@ export const projects = [
     description: "Write, preview, and manage notes in Markdown with cloud sync.",
     why: "Tiny Notion-like app to experiment with real-time sync, file storage, and Prisma integration.",
     stack: "BHVR + Prisma + PostgreSQL",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "React Markdown Editor with live preview panel",
       "Prisma database integration",
@@ -94,8 +97,8 @@ export const projects = [
     description: "Interactive dashboard for tracking currencies, expenses, and investments.",
     why: "Combine front-end data visualization with back-end data aggregation.",
     stack: "BHVR + Recharts",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "Landing page with What, Why, How, and CTA flow",
       "Overview dashboard with real-time charts",
@@ -115,8 +118,8 @@ export const projects = [
     description: "Command-line tool and web interface sharing backend logic.",
     why: "Demonstrate full-stack logic reuse and CLI + Web integration.",
     stack: "BHVR",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "Bun CLI tool to run commands",
       "React Web Frontend displaying same data",
@@ -134,8 +137,8 @@ export const projects = [
     description: "Reusable full-stack starter kit for authentication and dashboard apps.",
     why: "Provide a boilerplate SaaS template for rapid project bootstrapping.",
     stack: "BHVR",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "React frontend with authentication (login/signup)",
       "Bun API with JWT auth",
@@ -154,8 +157,8 @@ export const projects = [
     description: "Small multi-tenant SaaS with authentication and CRUD functionality.",
     why: "Showcase a production-ready, full-stack SaaS app with admin workflows.",
     stack: "Next.js, TypeScript, PostgreSQL, Prisma",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "Authentication + OAuth",
       "Role-Based Access Control (RBAC)",
@@ -175,8 +178,8 @@ export const projects = [
     description: "App with full multi-language and locale support.",
     why: "Demonstrate advanced i18n, RTL handling, and locale-specific formatting.",
     stack: "Next.js App Router + Middleware + TanStack Query/Form",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "i18n with language selection",
       "Right-to-left (RTL) awareness",
@@ -194,8 +197,8 @@ export const projects = [
     description: "Combine audio processing and language features in one app.",
     why: "Showcase linguistics, audio processing, and small analytics dashboards.",
     stack: "Rails API or Hono + Node services + PostgreSQL + Tailwind + ShadCN",
-    repoUrl: "",
-    liveUrl: "",
+    repoUrl: undefined,
+    liveUrl: undefined,
     features: [
       "Speech-to-text transcription",
       "Background job processing with retries and rate limits",

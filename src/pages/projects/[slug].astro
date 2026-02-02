@@ -8,7 +8,6 @@ import { projects } from "../../data/projects";
 import { tagColors } from "../../utils/tagColors";
 import { tagIcons } from "../../utils/tagIcons";
 
-// 🔹 Export static paths for Astro
 export async function getStaticPaths() {
   return projects.map((project) => ({
     params: { slug: project.slug },
@@ -21,11 +20,10 @@ if (!project) {
   throw new Error(`Project not found: ${slug}`);
 }
 
-const { title, description, tags = [], screenshots = [], stack, features = [], repoUrl, liveUrl } = project;
+const { title, description, tags = [], screenshots = [], features = [], repoUrl, liveUrl } = project;
 
 const ogImage = screenshots[0] ?? "/images/og/default.png";
 const pageUrl = new URL(`/projects/${project.slug}/`, Astro.site).toString();
-
 const screenshot = screenshots[0];
 
 // JSON-LD Project (SoftwareSourceCode works well for GitHub projects)
@@ -56,51 +54,9 @@ const projectJsonLd = {
 
       {/* JSON-LD Project */}
       <script type="application/ld+json" set:html={JSON.stringify(projectJsonLd)} />
+    </Container>
 
-      {
-        tags.length > 0 && (
-          <ul class="mt-4 mb-6 flex flex-wrap gap-2 text-xs">
-            {tags.map((tag) => {
-              const { light, dark, text } = tagColors[tag] ?? {
-                light: "bg-gray-200",
-                dark: "bg-gray-700",
-                text: "text-gray-800 dark:text-gray-200",
-              };
-              return (
-                <li
-                  class={cn(
-                    "inline-flex items-center gap-1.5 rounded font-bold text-xs px-2 py-1.5",
-                    light,
-                    "dark:" + dark,
-                    text,
-                  )}
-                >
-                  {tagIcons[tag] &&
-                    (() => {
-                      const Icon = tagIcons[tag];
-                      return <Icon class="w-3.5 h-3.5 text-current" />;
-                    })()}
-                  <span>{tag}</span>
-                </li>
-              );
-            })}
-          </ul>
-        )
-      }
-
-      {
-        screenshot && (
-          <img
-            src={screenshot}
-            alt={`Screenshot of ${title}`}
-            class={cn(
-              "w-full h-auto aspect-video object-contain object-center rounded-t-lg border-b border-gray-300 dark:border-gray-700",
-            )}
-            loading="lazy"
-          />
-        )
-      }
-
+    <Container class="max-w-3xl">
       {
         (repoUrl || liveUrl) && (
           <div class="mt-6 flex flex-wrap gap-3">
@@ -115,6 +71,7 @@ const projectJsonLd = {
                 View repo
               </a>
             )}
+
             {liveUrl && (
               <a
                 href={liveUrl}
@@ -129,26 +86,65 @@ const projectJsonLd = {
           </div>
         )
       }
+    </Container>
 
-      {
-        stack && (
-          <p class="mt-6 text-sm text-gray-600 dark:text-gray-300">
-            <strong>Stack:</strong> {stack}
-          </p>
-        )
-      }
+    {
+      screenshot && (
+        <Container class="py-4 max-w-5xl">
+          <figure class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
+            <img src={screenshot} alt={`${title} screenshot`} class="w-full h-auto" loading="lazy" />
+          </figure>
+        </Container>
+      )
+    }
 
+    {
+      tags.length > 0 && (
+        <Container class="max-w-3xl">
+          <ul class="mt-4 flex flex-row items-center justify-baseline gap-2 text-xs">
+            <li class="font-bold text-lg">Stack:</li>
+            {tags.map((tag) => {
+              const { light, dark, text } = tagColors[tag] ?? {
+                light: "bg-gray-200",
+                dark: "bg-gray-700",
+                text: "text-gray-800 dark:text-gray-200",
+              };
+
+              const Icon = tagIcons[tag];
+
+              return (
+                <li
+                  class={cn(
+                    "inline-flex items-center gap-1.5 rounded font-bold text-xs px-2 py-1.5",
+                    light,
+                    "dark:" + dark,
+                    text,
+                  )}
+                >
+                  {Icon && <Icon class="w-3.5 h-3.5 text-current" />}
+                  <span>{tag}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </Container>
+      )
+    }
+
+    <Container class="max-w-3xl">
       {
         features.length > 0 && (
-          <ul class="mt-4 list-disc pl-5 space-y-1">
+          <ul class="mt-6 list-disc pl-5 space-y-1">
             {features.map((f) => (
               <li>{f}</li>
             ))}
           </ul>
         )
       }
+    </Container>
 
-      <div class="mt-8">
+    <Container class="max-w-3xl">
+      <div class="mt-10">
         <a
           href="/projects"
           class={cn(

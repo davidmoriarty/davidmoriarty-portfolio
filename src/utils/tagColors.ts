@@ -5,6 +5,8 @@ export const tagColors: Record<string, { light: string; dark: string; text: stri
   "Cloudflare": { light: "bg-[#F38020]", dark: "bg-[#a35a17]", text: "text-white" },
   "CloudflarePages": { light: "bg-[#F38020]", dark: "bg-[#a35a17]", text: "text-white" },
   "CSS": { light: "bg-[#1572B6]", dark: "bg-[#0f4a75]", text: "text-white" },
+  "Express": { light: "bg-[#000000]", dark: "bg-[#333333]", text: "text-white" },
+  "EJS": { light: "bg-[#000000]", dark: "bg-[#333333]", text: "text-white" },
   "Fly.io": { light: "bg-[#2B2B2B]", dark: "bg-[#1a1a1a]", text: "text-white" },
   "GitHub": { light: "bg-[#2B2B2B]", dark: "bg-[#1a1a1a]", text: "text-white" },
   "Hono": { light: "bg-[#0078D4]", dark: "bg-[#005a9c]", text: "text-white" },
@@ -18,14 +20,18 @@ export const tagColors: Record<string, { light: string; dark: string; text: stri
   "React": { light: "bg-[#61DAFB]", dark: "bg-[#3fb0c4]", text: "text-black" },
   "Rails": { light: "bg-[#CC0000]", dark: "bg-[#800000]", text: "text-white" },
   "RTL": { light: "bg-[#6B7280]", dark: "bg-[#4B5563]", text: "text-white" },
-  "Shadcn UI": { light: "bg-black", dark: "bg-black", text: "text-white" },
+  "ShadcnUI": { light: "bg-black", dark: "bg-black", text: "text-white" },
   "SQLite": { light: "bg-[#003B57]", dark: "bg-[#001f2c]", text: "text-white" },
   "Tailwind": { light: "bg-[#06B6D4]", dark: "bg-[#0ea5c1]", text: "text-black" },
   "TanStack": { light: "bg-[#FF3E00]", dark: "bg-[#b32d00]", text: "text-white" },
   "TypeScript": { light: "bg-[#3178C6]", dark: "bg-[#215a8a]", text: "text-white" },
   "Vercel": { light: "bg-[#000000]", dark: "bg-[#333333]", text: "text-white" },
+
   // Tags without icons
+  "Accessibility": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "CI/CD": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "Middleware": { light: "bg-[#9CA3AF]", dark: "bg-[#6B7280]", text: "text-black" },
+  "Progressive Enhancement": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
+  "Sessions": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "Testing": { light: "bg-[#F59E0B]", dark: "bg-[#B45309]", text: "text-black" },
 };

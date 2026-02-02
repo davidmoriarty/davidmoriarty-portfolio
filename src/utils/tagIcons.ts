@@ -49,7 +49,7 @@ export const tagIcons: Record<string, any> = {
   "React": ReactIcon,
   "RTL": RTLIcon,
   "Rails": RubyOnRailsIcon,
-  "Shadcn UI": ShadcnUIIcon,
+  "Shadcn/ui": ShadcnUIIcon,
   "SQLite": SQLiteIcon,
   "Tailwind": TailwindIcon,
   "TanStack": TanStackIcon,
