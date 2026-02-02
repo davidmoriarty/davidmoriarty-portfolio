@@ -1,5 +1,4 @@
 // src/data/resume/projects.ts
-
 import { projects as portfolioProjects } from "../projects";
 import type { ResumeProject, ResumeProjectId } from "./types";
 
@@ -16,6 +15,13 @@ const resumeBulletsBySlug: Record<ResumeProjectId, string[]> = {
     "Added a server-rendered dashboard UI with predictable request/response flows and minimal client-side JS.",
     "Hardened defaults with helmet, input validation, and request logging for debugging and ops visibility.",
   ],
+  "task-manager": [
+    "Built a full-stack task management application using Bun, Hono, and React with a shared TypeScript domain model.",
+    "Designed a clean REST API with JWT-based authentication, protected routes, and explicit request/response contracts.",
+    "Implemented end-to-end type sharing across client and server via a shared workspace package (Task, User, API responses).",
+    "Deployed frontend and backend independently (Cloudflare Pages + Fly.io) to demonstrate decoupled full-stack architecture.",
+    "Structured the project as a monorepo coordinated with Turbo, enabling isolated builds and scalable code organization.",
+  ],
 };
 
 function getPortfolioProject(slug: ResumeProjectId) {
@@ -24,7 +30,11 @@ function getPortfolioProject(slug: ResumeProjectId) {
   return p;
 }
 
-const resumeProjectIds: ResumeProjectId[] = ["task-ledger", "baseline-web"];
+const resumeProjectIds: ResumeProjectId[] = [
+  "task-ledger",
+  "baseline-web",
+  "task-manager",
+];
 
 export const resumeProjects: ResumeProject[] = resumeProjectIds.map((slug) => {
   const p = getPortfolioProject(slug);
@@ -37,8 +47,8 @@ export const resumeProjects: ResumeProject[] = resumeProjectIds.map((slug) => {
     stackLine: p.stack,
     bullets: resumeBulletsBySlug[slug],
     links: {
-      repo: p.repoUrl || undefined,
-      live: p.liveUrl || `/projects/${p.slug}/`,
+      repo: p.repoUrl,
+      live: p.liveUrl ?? `https://davidmoriarty.dev/projects/${p.slug}/`,
     },
     screenshot,
     screenshots: screenshots.length ? screenshots : undefined,

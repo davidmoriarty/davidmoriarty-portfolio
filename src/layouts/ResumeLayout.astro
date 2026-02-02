@@ -1,11 +1,15 @@
 ---
+// src/layouts/ResumeLayout.astro
 import "../styles/resume.css";
 
 interface Props {
   title?: string;
+  mode?: "web" | "print";
 }
 
-const { title = "Resume" } = Astro.props;
+const { title = "Resume", mode = "web" } = Astro.props;
+
+const mainClass = `resume ${mode === "print" ? "is-print" : "is-web"}`;
 ---
 
 <!doctype html>
@@ -17,8 +21,12 @@ const { title = "Resume" } = Astro.props;
   </head>
 
   <body>
-    <main class="resume">
+    <main class={mainClass}>
       <slot />
     </main>
+
+    <footer class="resume__footer">
+      <a href="/" class="resume__back-link"> Back to profile </a>
+    </footer>
   </body>
 </html>

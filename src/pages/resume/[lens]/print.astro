@@ -1,0 +1,55 @@
+---
+// src/pages/resume/[lens]/print.astro
+import ResumeLayout from "../../../layouts/ResumeLayout.astro";
+import ResumeView from "../../../components/resume/ResumeView.astro";
+
+import { resumeCore } from "../../../data/resume/core";
+import { resumeLenses } from "../../../data/resume/lenses";
+import { resumeProjects } from "../../../data/resume/projects";
+import { resumeSkillModules } from "../../../data/resume/skills";
+import { resumeExperience } from "../../../data/resume/experience";
+import { resumeEducation } from "../../../data/resume/education";
+import { isDefined } from "../../../data/resume/utils";
+
+export async function getStaticPaths() {
+  return resumeLenses.map((l) => ({ params: { lens: l.id } }));
+}
+
+const { lens: lensId } = Astro.params;
+
+const lens = resumeLenses.find((l) => l.id === lensId);
+if (!lens) throw new Error(`Resume lens not found: ${lensId}`);
+
+const selectedProjects = lens.recommended.projects
+  .map((id) => resumeProjects.find((p) => p.id === id))
+  .filter(isDefined);
+
+const selectedSkills = lens.recommended.skillModules
+  .map((id) => resumeSkillModules.find((m) => m.id === id))
+  .filter(isDefined);
+---
+
+<ResumeLayout title={`Resume — ${lens.label}`} mode="print">
+  <div class="resume__toggle">
+    <a href="/resume" class="underline underline-offset-4"> Switch to Web view </a>
+
+    <button
+      type="button"
+      onclick="window.print()"
+      class="underline underline-offset-4 bg-transparent border-0 p-0 font-inherit cursor-pointer"
+    >
+      Print / Save PDF
+    </button>
+  </div>
+
+  <ResumeView
+    core={resumeCore}
+    lens={lens}
+    skills={selectedSkills}
+    projects={selectedProjects}
+    experience={resumeExperience}
+    education={resumeEducation}
+    mode="print"
+    showLens={true}
+  />
+</ResumeLayout>

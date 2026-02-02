@@ -16,12 +16,16 @@ export type ResumeSkillModuleId =
   | "performance"
   | "security-basics";
 
-export type ResumeProjectId = "task-ledger" | "baseline-web";
+export type ResumeProjectId =
+  | "task-ledger"
+  | "baseline-web"
+  | "task-manager";
 
 export type ResumeCore = {
   name: string;
   title: string;
   location?: string;
+  email: string;
   links: {
     portfolio: string;
     github: string;
@@ -29,8 +33,25 @@ export type ResumeCore = {
   };
   summary: string[];
   sectionOrder: Array<
-    "summary" | "projects" | "skills" | "experience" | "education"
+    "summary" | "skills" | "projects" | "experience" | "education"
   >;
+};
+
+export type ResumeExperience = {
+  company: string;
+  location?: string;
+  role: string;
+  period: string;
+  bullets: string[];
+};
+
+export type ResumeEducation = {
+  institution: string;
+  location?: string;
+  credential: string;
+  period: string;
+  summary?: string;
+  notes?: string[];
 };
 
 export type ResumeSkillModule = {

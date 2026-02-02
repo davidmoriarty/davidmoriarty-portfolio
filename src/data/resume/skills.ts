@@ -34,10 +34,10 @@ export const resumeSkillModules: ResumeSkillModule[] = [
     id: "backend-auth",
     label: "Backend Auth & Sessions",
     bullets: [
-      "Implement session-based auth flows with protected routes and secure cookie handling.",
-      "Design clear middleware boundaries for authentication, validation, and error handling.",
+      "Implement authentication using sessions or JWTs with clear protected-route boundaries.",
+      "Design middleware for authentication, validation, and error handling with predictable responses.",
     ],
-    tags: ["Auth", "Sessions"],
+    tags: ["Auth", "Sessions", "JWT"],
   },
   {
     id: "api-design",

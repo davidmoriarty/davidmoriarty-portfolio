@@ -1,5 +1,5 @@
 ---
-// src/pages/resume/[lens].astro
+// src/pages/resume/print.astro
 import ResumeLayout from "../../layouts/ResumeLayout.astro";
 import ResumeView from "../../components/resume/ResumeView.astro";
 
@@ -11,16 +11,8 @@ import { resumeExperience } from "../../data/resume/experience";
 import { resumeEducation } from "../../data/resume/education";
 import { isDefined } from "../../data/resume/utils";
 
-export async function getStaticPaths() {
-  return resumeLenses.map((l) => ({
-    params: { lens: l.id },
-  }));
-}
-
-const { lens: lensId } = Astro.params;
-
-const lens = resumeLenses.find((l) => l.id === lensId);
-if (!lens) throw new Error(`Resume lens not found: ${lensId}`);
+const lens = resumeLenses.find((l) => l.isDefault) ?? resumeLenses[0];
+if (!lens) throw new Error(`No resume lenses configured`);
 
 const selectedProjects = lens.recommended.projects
   .map((id) => resumeProjects.find((p) => p.id === id))
@@ -31,9 +23,17 @@ const selectedSkills = lens.recommended.skillModules
   .filter(isDefined);
 ---
 
-<ResumeLayout title={`Resume — ${lens.label}`} mode="web">
+<ResumeLayout title="Resume (PDF)" mode="print">
   <div class="resume__toggle">
-    <a href={`/resume/${lens.id}/print`}>Switch to PDF view</a>
+    <a href="/resume">Switch to Web view</a>
+
+    <button
+      type="button"
+      onclick="window.print()"
+      class="underline underline-offset-4 bg-transparent border-0 p-0 font-inherit cursor-pointer"
+    >
+      Print / Save PDF
+    </button>
   </div>
 
   <ResumeView
@@ -43,7 +43,6 @@ const selectedSkills = lens.recommended.skillModules
     projects={selectedProjects}
     experience={resumeExperience}
     education={resumeEducation}
-    mode="web"
-    showLens={true}
+    mode="print"
   />
 </ResumeLayout>

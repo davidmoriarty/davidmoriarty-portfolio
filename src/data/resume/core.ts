@@ -1,11 +1,11 @@
 // src/data/resume/core.ts
-
 import type { ResumeCore } from "./types";
 
 export const resumeCore: ResumeCore = {
   name: "David Moriarty",
   title: "Full-Stack Software Developer",
   location: "London, ON",
+  email: "davidmoriarty@icloud.com",
   links: {
     portfolio: "https://davidmoriarty.dev",
     github: "https://github.com/davidmoriarty",
@@ -13,8 +13,8 @@ export const resumeCore: ResumeCore = {
   },
   summary: [
     "Full-stack developer focused on clarity, maintainability, and strong web fundamentals.",
-    "Builds accessible UIs, pragmatic backends, and clean data models across modern and classic stacks.",
-    "Comfortable shipping end-to-end features—from architecture and APIs to UI polish and deployment.",
+    "Builds accessible, performant UIs and pragmatic backends with clean API boundaries.",
+    "Comfortable shipping end-to-end features—from architecture and data modeling to UI polish and deployment.",
   ],
-  sectionOrder: ["summary", "projects", "skills", "experience", "education"],
+  sectionOrder: ["summary", "skills", "projects", "experience", "education"],
 };

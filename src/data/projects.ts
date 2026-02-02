@@ -1,6 +1,19 @@
 // src/data/projects.ts
+export type PortfolioProject = {
+  slug: string;
+  status: "finished" | "wip";
+  title: string;
+  description: string;
+  why: string;
+  stack: string;
+  repoUrl?: string;
+  liveUrl?: string;
+  features: string[];
+  tags: string[];
+  screenshots?: string[];
+};
 
-export const projects = [
+export const projects: PortfolioProject[] = [
   {
     slug: "baseline-web",
     status: "finished",
@@ -71,14 +84,35 @@ export const projects = [
     ],
   },
   {
+    slug: "outsiders-hair-boutique",
+    status: "wip",
+    title: "Outsiders Hair Boutique",
+    description:
+      "Small-business salon website and ops support: site updates, marketing assets, and booking/product maintenance.",
+    why:
+      "Demonstrate practical, real-world delivery: shipping and maintaining a client-facing site plus day-to-day business tooling updates.",
+    stack: "Astro + Tailwind + content-driven components",
+    // Add repoUrl/liveUrl when ready
+    features: [
+      "Content updates for services, products, and promos",
+      "Booking and inventory support (Square)",
+      "Performance- and mobile-first layout",
+      "SEO and business listing maintenance (Google Business Profile)",
+    ],
+    tags: ["Astro", "Tailwind", "Content Ops", "Small Business"],
+    screenshots: [
+      "https://placehold.co/400x225@2x.png",
+      "https://placehold.co/400x225@2x.png"
+    ]
+  },
+  {
     slug: "notes-app",
     status: "wip",
     title: "Notes App",
     description: "Write, preview, and manage notes in Markdown with cloud sync.",
     why: "Tiny Notion-like app to experiment with real-time sync, file storage, and Prisma integration.",
     stack: "BHVR + Prisma + PostgreSQL",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "React Markdown Editor with live preview panel",
       "Prisma database integration",
@@ -97,8 +131,7 @@ export const projects = [
     description: "Interactive dashboard for tracking currencies, expenses, and investments.",
     why: "Combine front-end data visualization with back-end data aggregation.",
     stack: "BHVR + Recharts",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "Landing page with What, Why, How, and CTA flow",
       "Overview dashboard with real-time charts",
@@ -118,8 +151,7 @@ export const projects = [
     description: "Command-line tool and web interface sharing backend logic.",
     why: "Demonstrate full-stack logic reuse and CLI + Web integration.",
     stack: "BHVR",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "Bun CLI tool to run commands",
       "React Web Frontend displaying same data",
@@ -137,8 +169,7 @@ export const projects = [
     description: "Reusable full-stack starter kit for authentication and dashboard apps.",
     why: "Provide a boilerplate SaaS template for rapid project bootstrapping.",
     stack: "BHVR",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "React frontend with authentication (login/signup)",
       "Bun API with JWT auth",
@@ -157,8 +188,7 @@ export const projects = [
     description: "Small multi-tenant SaaS with authentication and CRUD functionality.",
     why: "Showcase a production-ready, full-stack SaaS app with admin workflows.",
     stack: "Next.js, TypeScript, PostgreSQL, Prisma",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "Authentication + OAuth",
       "Role-Based Access Control (RBAC)",
@@ -178,8 +208,7 @@ export const projects = [
     description: "App with full multi-language and locale support.",
     why: "Demonstrate advanced i18n, RTL handling, and locale-specific formatting.",
     stack: "Next.js App Router + Middleware + TanStack Query/Form",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "i18n with language selection",
       "Right-to-left (RTL) awareness",
@@ -197,8 +226,7 @@ export const projects = [
     description: "Combine audio processing and language features in one app.",
     why: "Showcase linguistics, audio processing, and small analytics dashboards.",
     stack: "Rails API or Hono + Node services + PostgreSQL + Tailwind + ShadCN",
-    repoUrl: undefined,
-    liveUrl: undefined,
+    // Add repoUrl/liveUrl when ready
     features: [
       "Speech-to-text transcription",
       "Background job processing with retries and rate limits",

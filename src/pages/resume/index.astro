@@ -7,12 +7,12 @@ import { resumeCore } from "../../data/resume/core";
 import { resumeLenses } from "../../data/resume/lenses";
 import { resumeProjects } from "../../data/resume/projects";
 import { resumeSkillModules } from "../../data/resume/skills";
+import { resumeExperience } from "../../data/resume/experience";
+import { resumeEducation } from "../../data/resume/education";
 import { isDefined } from "../../data/resume/utils";
 
 const lens = resumeLenses.find((l) => l.isDefault) ?? resumeLenses[0];
-if (!lens) {
-  throw new Error(`No resume lenses configured`);
-}
+if (!lens) throw new Error(`No resume lenses configured`);
 
 const selectedProjects = lens.recommended.projects
   .map((id) => resumeProjects.find((p) => p.id === id))
@@ -23,6 +23,18 @@ const selectedSkills = lens.recommended.skillModules
   .filter(isDefined);
 ---
 
-<ResumeLayout title="Resume">
-  <ResumeView core={resumeCore} lens={lens} projects={selectedProjects} skills={selectedSkills} />
+<ResumeLayout title="Resume" mode="web">
+  <div class="resume__toggle">
+    <a href="/resume/print">Switch to PDF view</a>
+  </div>
+
+  <ResumeView
+    core={resumeCore}
+    lens={lens}
+    skills={selectedSkills}
+    projects={selectedProjects}
+    experience={resumeExperience}
+    education={resumeEducation}
+    mode="web"
+  />
 </ResumeLayout>

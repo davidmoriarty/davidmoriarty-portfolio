@@ -8,7 +8,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     label: "Full-Stack Engineer",
     isDefault: true,
     recommended: {
-      projects: ["task-ledger", "baseline-web"],
+      projects: ["task-manager", "task-ledger", "baseline-web"],
       skillModules: [
         "frontend-accessibility",
         "api-design",
@@ -23,7 +23,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     label: "Frontend / Accessibility",
     isDefault: false,
     recommended: {
-      projects: ["baseline-web", "task-ledger"],
+      projects: ["baseline-web", "task-manager"],
       skillModules: [
         "frontend-accessibility",
         "responsive-css",
@@ -38,7 +38,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     label: "Backend / Platform",
     isDefault: false,
     recommended: {
-      projects: ["task-ledger", "baseline-web"],
+      projects: ["task-manager", "task-ledger"],
       skillModules: [
         "backend-auth",
         "api-design",
