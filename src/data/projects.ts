@@ -55,7 +55,7 @@ export const projects: PortfolioProject[] = [
     ],
     tags: ["Node.js", "Express", "EJS", "SQLite", "Sessions"],
     screenshots: [
-      "/images/screenshots/taskledger-dashboard.png",
+      "/images/screenshots/taskledger-demo.png",
       "/images/screenshots/taskledger-login.png",
     ],
   },
@@ -79,20 +79,21 @@ export const projects: PortfolioProject[] = [
     ],
     tags: ["Bun", "Hono", "React", "TanStack", "Tailwind", "Shadcn/ui", "TypeScript"],
     screenshots: [
-      "/images/screenshots/taskmanager-tasks.png",
+      "/images/screenshots/taskmanager-dashboard.png",
       "/images/screenshots/taskmanager-login.png",
     ],
   },
   {
     slug: "outsiders-hair-boutique",
-    status: "wip",
+    status: "finished",
     title: "Outsiders Hair Boutique",
     description:
       "Small-business salon website and ops support: site updates, marketing assets, and booking/product maintenance.",
     why:
       "Demonstrate practical, real-world delivery: shipping and maintaining a client-facing site plus day-to-day business tooling updates.",
     stack: "Astro + Tailwind + content-driven components",
-    // Add repoUrl/liveUrl when ready
+    repoUrl: "https://github.com/davidmoriarty/outsiders-site",
+    liveUrl: "https://outsidershairboutique.com",
     features: [
       "Content updates for services, products, and promos",
       "Booking and inventory support (Square)",
@@ -101,8 +102,8 @@ export const projects: PortfolioProject[] = [
     ],
     tags: ["Astro", "Tailwind", "Content Ops", "Small Business"],
     screenshots: [
-      "https://placehold.co/400x225@2x.png",
-      "https://placehold.co/400x225@2x.png"
+      "/images/screenshots/outsiders-portfolio.png",
+      "/images/screenshots/outsiders-home.png",
     ]
   },
   {
