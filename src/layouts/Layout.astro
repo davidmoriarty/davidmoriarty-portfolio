@@ -19,7 +19,7 @@ const {
 } = Astro.props;
 
 const rawPath = canonicalPath ?? Astro.url.pathname;
-const normalizedPath = rawPath !== "/" && rawPath.endsWith("/") ? rawPath.slice(0, -1) : rawPath;
+const normalizedPath = rawPath === "/" ? "/" : rawPath.endsWith("/") ? rawPath : `${rawPath}/`;
 const canonicalUrl = new URL(normalizedPath, Astro.site);
 
 const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro.site).toString();
