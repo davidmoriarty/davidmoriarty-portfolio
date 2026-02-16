@@ -114,7 +114,7 @@ export const projects: PortfolioProject[] = [
     why: "Built to design and implement a production-style authentication system using access tokens, rotating refresh tokens, and indexed token verification inside a Bun + Hono monorepo architecture.",
     stack: "Bun + Hono + Prisma + PostgreSQL + React + TanStack Router",
     repoUrl: "https://github.com/davidmoriarty/note-manager",
-    liveUrl: "",
+    liveUrl: "https://note-manager-dvk.pages.dev",
     features: [
       "JWT access tokens with rotating refresh token architecture",
       "HttpOnly refresh cookies with server-side revocation",
