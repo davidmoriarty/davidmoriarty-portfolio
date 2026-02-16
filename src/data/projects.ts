@@ -22,7 +22,7 @@ export const projects: PortfolioProject[] = [
     why: "Showcase core web fundamentals (semantic HTML, accessibility, responsive layout, progressive enhancement) without frameworks.",
     stack: "HTML5 + CSS3 + Vanilla JS",
     repoUrl: "https://github.com/davidmoriarty/baseline-web",
-    liveUrl: "https://baseline-web.pages.dev",
+    liveUrl: "https://baseline-web.davidmoriarty.dev",
     features: [
       "Semantic landmarks + skip link + visible focus styles",
       "Responsive navigation with keyboard/ESC support",
@@ -46,7 +46,7 @@ export const projects: PortfolioProject[] = [
     why: "Demonstrate classic backend patterns common in production Express apps: sessions, auth, CRUD, and server-rendered UI.",
     stack: "Node.js + Express + EJS + SQLite (better-sqlite3)",
     repoUrl: "https://github.com/davidmoriarty/task-ledger",
-    liveUrl: "https://task-ledger.fly.dev",
+    liveUrl: "https://task-ledger.davidmoriarty.dev",
     features: [
       "Session-based authentication (register/login/logout)",
       "Protected routes + server-rendered dashboard",
@@ -70,7 +70,7 @@ export const projects: PortfolioProject[] = [
     stack:
       "BHVR: Bun + Hono + React (Vite) + TanStack Router & Query + TailwindCSS + shadcn/ui",
     repoUrl: "https://github.com/davidmoriarty/task-manager",
-    liveUrl: "https://task-manager-client.pages.dev",
+    liveUrl: "https://task-manager.davidmoriarty.dev",
     features: [
       "Auth routes: /auth/signup and /auth/login (demo signup via curl)",
       "Protected task routes: /tasks, /tasks/:id/toggle, /tasks/:id",
@@ -114,7 +114,7 @@ export const projects: PortfolioProject[] = [
     why: "Built to design and implement a production-style authentication system using access tokens, rotating refresh tokens, and indexed token verification inside a Bun + Hono monorepo architecture.",
     stack: "Bun + Hono + Prisma + PostgreSQL + React + TanStack Router",
     repoUrl: "https://github.com/davidmoriarty/note-manager",
-    liveUrl: "https://note-manager-dvk.pages.dev",
+    liveUrl: "https://note-manager.davidmoriarty.dev",
     features: [
       "JWT access tokens with rotating refresh token architecture",
       "HttpOnly refresh cookies with server-side revocation",
