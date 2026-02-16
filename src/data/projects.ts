@@ -107,22 +107,38 @@ export const projects: PortfolioProject[] = [
     ]
   },
   {
-    slug: "notes-app",
-    status: "wip",
-    title: "Notes App",
-    description: "Write, preview, and manage notes in Markdown with cloud sync.",
-    why: "Tiny Notion-like app to experiment with real-time sync, file storage, and Prisma integration.",
-    stack: "BHVR + Prisma + PostgreSQL",
-    // Add repoUrl/liveUrl when ready
+    slug: "note-manager",
+    status: "finished",
+    title: "Note Manager",
+    description: "Full-stack notes application with secure JWT authentication and rotating refresh tokens.",
+    why: "Built to design and implement a production-style authentication system using access tokens, rotating refresh tokens, and indexed token verification inside a Bun + Hono monorepo architecture.",
+    stack: "Bun + Hono + Prisma + PostgreSQL + React + TanStack Router",
+    repoUrl: "https://github.com/davidmoriarty/note-manager",
+    liveUrl: "",
     features: [
-      "React Markdown Editor with live preview panel",
-      "Prisma database integration",
-      "Authentication with HttpCookie and token refresh"
+      "JWT access tokens with rotating refresh token architecture",
+      "HttpOnly refresh cookies with server-side revocation",
+      "Indexed refresh token lookup (O(1) verification)",
+      "Protected routes with token refresh flow",
+      "Full CRUD notes with Prisma + PostgreSQL",
+      "Monorepo architecture (client/server/shared) using Turborepo",
+      "Form validation with Zod + TanStack Form"
     ],
-    tags: ["Bun", "Hono", "React", "TanStack", "Tailwind", "ShadCN", "TypeScript", "Prisma", "PostgreSQL"],
+    tags: [
+      "Bun",
+      "Hono",
+      "React",
+      "TanStack",
+      "Zustand",
+      "Prisma",
+      "PostgreSQL",
+      "JWT",
+      "Authentication",
+      "TypeScript"
+    ],
     screenshots: [
-      "https://placehold.co/400x225@2x.png",
-      "https://placehold.co/400x225@2x.png"
+      "/images/screenshots/notemanager-overview.png",
+      "/images/screenshots/notemanager-editor.png",
     ]
   },
   {
