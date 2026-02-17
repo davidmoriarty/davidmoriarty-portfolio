@@ -1,0 +1,84 @@
+---
+// src/pages/cover-letter/[lens]/print.astro
+import ResumeLayout from "../../../layouts/ResumeLayout.astro";
+
+import { resumeLenses } from "../../../data/resume/lenses";
+import { getCoverLetter } from "../../../data/cover-letter/core";
+
+export async function getStaticPaths() {
+  return resumeLenses.map((l) => ({
+    params: { lens: l.id },
+  }));
+}
+
+const { lens: lensId } = Astro.params;
+
+const lens = resumeLenses.find((l) => l.id === lensId);
+if (!lens) throw new Error(`Resume lens not found: ${lensId}`);
+
+const q = Astro.url.searchParams;
+
+const companyName = q.get("company") ?? "[Company Name]";
+const positionTitle = q.get("title") ?? "[Position Title]";
+const hiringManagerName = q.get("hm") ?? undefined;
+const companyLocationLine = q.get("loc") ?? undefined;
+const companyFocus = q.get("focus") ?? undefined;
+
+const keywords = (q.get("kw") ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+const date =
+  q.get("date") ??
+  new Date().toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+const { body } = getCoverLetter(lens.id, {
+  date,
+  companyName,
+  positionTitle,
+  hiringManagerName,
+  companyLocationLine,
+  companyFocus,
+  keywords,
+});
+
+// Split paragraphs for print layout
+const paragraphs = body.split("\n\n");
+---
+
+<ResumeLayout title={`Cover Letter — ${lens.label}`} mode="print">
+  <div class="print__controls">
+    <a href={`/cover-letter/${lens.id}${Astro.url.search}`}>Switch to web view</a>
+    <span> · </span>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <article class="cover-letter-print">
+    {paragraphs.map((p) => <p>{p}</p>)}
+  </article>
+</ResumeLayout>
+
+<style>
+  /* Hide controls in actual print */
+  @media print {
+    .print__controls {
+      display: none !important;
+    }
+  }
+
+  /* Print-friendly page sizing */
+  .cover-letter-print {
+    max-width: 7.5in;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .cover-letter-print p {
+    margin: 0 0 12pt 0;
+  }
+</style>

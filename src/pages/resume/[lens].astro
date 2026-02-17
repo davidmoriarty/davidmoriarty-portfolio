@@ -34,6 +34,8 @@ const selectedSkills = lens.recommended.skillModules
 <ResumeLayout title={`Resume — ${lens.label}`} mode="web">
   <div class="resume__toggle">
     <a href={`/resume/${lens.id}/print`}>Switch to PDF view</a>
+    <span> · </span>
+    <a href={`/cover-letter/${lens.id}`}>Cover letter</a>
   </div>
 
   <ResumeView

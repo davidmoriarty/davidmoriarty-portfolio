@@ -19,7 +19,9 @@ export type ResumeSkillModuleId =
 export type ResumeProjectId =
   | "task-ledger"
   | "baseline-web"
-  | "task-manager";
+  | "task-manager"
+  | "outsiders-hair-boutique"
+  | "note-manager";
 
 export type ResumeCore = {
   name: string;

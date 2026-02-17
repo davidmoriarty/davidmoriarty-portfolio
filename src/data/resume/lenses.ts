@@ -1,5 +1,4 @@
 // src/data/resume/lenses.ts
-
 import type { ResumeLensConfig } from "./types";
 
 export const resumeLenses: ResumeLensConfig[] = [
@@ -8,7 +7,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     label: "Full-Stack Engineer",
     isDefault: true,
     recommended: {
-      projects: ["task-manager", "task-ledger", "baseline-web"],
+      projects: ["note-manager", "task-manager", "task-ledger"],
       skillModules: [
         "frontend-accessibility",
         "api-design",
@@ -23,7 +22,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     label: "Frontend / Accessibility",
     isDefault: false,
     recommended: {
-      projects: ["baseline-web", "task-manager"],
+      projects: ["baseline-web", "outsiders-hair-boutique", "task-manager"],
       skillModules: [
         "frontend-accessibility",
         "responsive-css",
@@ -38,7 +37,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     label: "Backend / Platform",
     isDefault: false,
     recommended: {
-      projects: ["task-manager", "task-ledger"],
+      projects: ["note-manager", "task-ledger", "task-manager"],
       skillModules: [
         "backend-auth",
         "api-design",
