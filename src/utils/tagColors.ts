@@ -29,9 +29,14 @@ export const tagColors: Record<string, { light: string; dark: string; text: stri
 
   // Tags without icons
   "Accessibility": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
+  "Authentication": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "CI/CD": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
+  "Content Ops": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
+  "JWT": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "Middleware": { light: "bg-[#9CA3AF]", dark: "bg-[#6B7280]", text: "text-black" },
   "Progressive Enhancement": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "Sessions": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
+  "Small Business": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
   "Testing": { light: "bg-[#F59E0B]", dark: "bg-[#B45309]", text: "text-black" },
+  "Zustand": { light: "bg-[#6B7280]", dark: "bg-[#374151]", text: "text-white" },
 };

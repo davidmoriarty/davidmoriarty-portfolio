@@ -101,7 +101,7 @@ const projectJsonLd = {
     {
       tags.length > 0 && (
         <Container class="max-w-3xl py-2">
-          <ul class="mt-4 flex flex-row items-center justify-baseline gap-2 text-xs">
+          <ul class="mt-4 flex flex-row flex-wrap items-center justify-baseline gap-2 text-xs">
             <li class="font-bold text-lg">Stack:</li>
             {tags.map((tag) => {
               const { light, dark, text } = tagColors[tag] ?? {
