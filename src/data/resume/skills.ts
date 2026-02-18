@@ -52,7 +52,7 @@ export const resumeSkillModules: ResumeSkillModule[] = [
     id: "databases-sql",
     label: "Databases & Data Modeling",
     bullets: [
-      "Design relational schemas and write practical SQL queries for real application workflows.",
+      "Design relational schemas and write practical SQL queries for production web applications.",
       "Keep data access explicit and testable with lightweight query helpers.",
     ],
     tags: ["SQL", "SQLite", "Postgres"],
@@ -88,7 +88,7 @@ export const resumeSkillModules: ResumeSkillModule[] = [
     id: "mvc-frameworks",
     label: "MVC Frameworks",
     bullets: [
-      "Design relational schemas and write practical SQL queries for production web applications.",
+      "Build structured web applications using MVC patterns with clear separation of routes, controllers, and data layers.",
       "Experience with Ruby on Rails and PHP-based backends, applying RESTful design and relational data modeling.",
     ],
     tags: ["Rails", "PHP", "MVC", "REST"],
