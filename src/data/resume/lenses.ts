@@ -10,6 +10,7 @@ export const resumeLenses: ResumeLensConfig[] = [
       projects: ["note-manager", "task-manager", "task-ledger"],
       skillModules: [
         "mvc-frameworks",
+        "typescript-runtime",
         "frontend-accessibility",
         "api-design",
         "backend-auth",

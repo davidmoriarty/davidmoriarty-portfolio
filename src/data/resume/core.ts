@@ -12,7 +12,7 @@ export const resumeCore: ResumeCore = {
     linkedin: "https://www.linkedin.com/in/david-moriarty-248b4970",
   },
   summary: [
-    "Full-stack web developer focused on clarity, maintainability, and strong MVC web fundamentals.",
+    "Full-stack engineer experienced in designing and shipping SQL-backed web applications across backend and frontend layers.",
     "Builds accessible, performant UIs and pragmatic backends with clean API boundaries.",
     "Comfortable shipping end-to-end features—from architecture and data modeling to UI polish and deployment.",
   ],

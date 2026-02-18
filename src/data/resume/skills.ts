@@ -93,4 +93,22 @@ export const resumeSkillModules: ResumeSkillModule[] = [
     ],
     tags: ["Rails", "PHP", "MVC", "REST"],
   },
+  {
+    id: "typescript-frameworks",
+    label: "TypeScript & Modern Frontend",
+    bullets: [
+      "Build typed frontend applications using TypeScript with clear component boundaries and predictable state management.",
+      "Design SPA architectures that integrate cleanly with REST APIs and authentication flows.",
+    ],
+    tags: ["TypeScript", "React", "SPA", "JavaScript"],
+  },
+  {
+    id: "typescript-runtime",
+    label: "TypeScript & JavaScript Runtime",
+    bullets: [
+      "Build typed applications using TypeScript across frontend and server-side runtimes.",
+      "Work within modern JavaScript ecosystems (Node-based runtimes, tooling, and module systems) to structure maintainable full-stack applications.",
+    ],
+    tags: ["TypeScript", "JavaScript", "Node", "React"],
+  },
 ];

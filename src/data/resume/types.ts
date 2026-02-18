@@ -15,7 +15,9 @@ export type ResumeSkillModuleId =
   | "tooling-practices"
   | "performance"
   | "security-basics"
-  | "mvc-frameworks";
+  | "mvc-frameworks"
+  | "typescript-frameworks"
+  | "typescript-runtime";
 
 export type ResumeProjectId =
   | "task-ledger"
