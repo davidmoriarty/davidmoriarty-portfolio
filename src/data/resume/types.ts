@@ -14,7 +14,8 @@ export type ResumeSkillModuleId =
   | "databases-sql"
   | "tooling-practices"
   | "performance"
-  | "security-basics";
+  | "security-basics"
+  | "mvc-frameworks";
 
 export type ResumeProjectId =
   | "task-ledger"

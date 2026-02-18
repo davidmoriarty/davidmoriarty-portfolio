@@ -84,4 +84,13 @@ export const resumeSkillModules: ResumeSkillModule[] = [
     ],
     tags: ["Tooling"],
   },
+  {
+    id: "mvc-frameworks",
+    label: "MVC Frameworks",
+    bullets: [
+      "Design relational schemas and write practical SQL queries for production web applications.",
+      "Experience with Ruby on Rails and PHP-based backends, applying RESTful design and relational data modeling.",
+    ],
+    tags: ["Rails", "PHP", "MVC", "REST"],
+  },
 ];

@@ -9,6 +9,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     recommended: {
       projects: ["note-manager", "task-manager", "task-ledger"],
       skillModules: [
+        "mvc-frameworks",
         "frontend-accessibility",
         "api-design",
         "backend-auth",
@@ -39,6 +40,7 @@ export const resumeLenses: ResumeLensConfig[] = [
     recommended: {
       projects: ["note-manager", "task-ledger", "task-manager"],
       skillModules: [
+        "mvc-frameworks",
         "backend-auth",
         "api-design",
         "databases-sql",
