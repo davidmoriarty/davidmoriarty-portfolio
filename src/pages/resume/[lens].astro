@@ -1,15 +1,13 @@
 ---
-// src/pages/resume/[lens].astro
-import ResumeLayout from "../../layouts/ResumeLayout.astro";
 import ResumeView from "../../components/resume/ResumeView.astro";
-
 import { resumeCore } from "../../data/resume/core";
+import { resumeEducation } from "../../data/resume/education";
+import { resumeExperience } from "../../data/resume/experience";
 import { resumeLenses } from "../../data/resume/lenses";
 import { resumeProjects } from "../../data/resume/projects";
 import { resumeSkillModules } from "../../data/resume/skills";
-import { resumeExperience } from "../../data/resume/experience";
-import { resumeEducation } from "../../data/resume/education";
 import { isDefined } from "../../data/resume/utils";
+import ResumeLayout from "../../layouts/ResumeLayout.astro";
 
 export async function getStaticPaths() {
   return resumeLenses.map((l) => ({

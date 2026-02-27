@@ -3,57 +3,57 @@
    ========================= */
 
 .resume {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 48px 32px;
-  font-family: Inter, system-ui, sans-serif;
-  color: #111;
+	max-width: 850px;
+	margin: 0 auto;
+	padding: 48px 32px;
+	font-family: Inter, system-ui, sans-serif;
+	color: #111;
 }
 
 .resume section {
-  margin-top: 32px;
+	margin-top: 32px;
 }
 
 .resume h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.2;
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: 1.2;
 }
 
 .resume h2 {
-  margin-top: 24px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #555;
+	margin-top: 24px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #555;
 }
 
 .resume p,
 .resume li {
-  font-size: 0.875rem;
-  line-height: 1.6;
+	font-size: 0.875rem;
+	line-height: 1.6;
 }
 
 /* Toggle bar (outside print) */
 .resume__toggle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 850px;
-  margin: 1.25rem auto 0;
-  padding: 0;
-  font-size: 0.875rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	max-width: 850px;
+	margin: 1.25rem auto 0;
+	padding: 0;
+	font-size: 0.875rem;
 }
 
 /* Contact links row */
 .resume-links__row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+	display: flex;
+	align-items: baseline;
+	gap: 0.75rem;
+	flex-wrap: wrap;
 }
 
 /* Link visual reset (all modes) */
@@ -61,47 +61,47 @@
 .resume a:visited,
 .resume a:hover,
 .resume a:active {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 4px;
 }
 
 /* Footer */
 .resume__footer {
-  text-align: center;
-  margin: 2.5rem auto 1.5rem;
+	text-align: center;
+	margin: 2.5rem auto 1.5rem;
 }
 
 .resume__back-link {
-  font-size: 1rem;
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+	font-size: 1rem;
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 4px;
 }
 
 /* Link layout helpers (used by ResumeView) */
 .resume-links__row {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
 }
 
 .resume-links__column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
 }
 
 .project-links__row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+	display: flex;
+	gap: 0.75rem;
+	flex-wrap: wrap;
 }
 
 .project-links__column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
 }
 
 /* =========================
@@ -110,12 +110,12 @@
 
 /* Hide PDF URLs in web mode */
 .resume.is-web .link-pdf {
-  display: none;
+	display: none;
 }
 
 /* Separator dot only visible in print */
 .resume.is-web .resume-links__sep {
-  display: none;
+	display: none;
 }
 
 /* =========================
@@ -124,143 +124,207 @@
 
 /* Hide web-only labels in print mode */
 .resume.is-print .link-web {
-  display: none;
+	display: none;
 }
 
 .resume.is-print .resume-links__sep {
-  display: inline;
+	display: inline;
 }
 
 /* Hide toggle + footer when actually printing */
 @media print {
-  .resume__toggle {
-    display: none !important;
-  }
+	.resume__toggle {
+		display: none !important;
+	}
 
-  .resume__footer {
-    display: none !important;
-  }
+	.resume__footer {
+		display: none !important;
+	}
 
-  @page {
-    margin: 8mm;
-  }
+	@page {
+		margin: 8mm;
+	}
 }
 
 /* Print layout tightening */
 .resume.is-print {
-  padding: 14px 20px;
+	padding: 14px 20px;
 }
 
 .resume.is-print section {
-  margin-top: 12px;
+	margin-top: 12px;
 }
 
 .resume.is-print h1 {
-  font-size: 1.7rem;
-  line-height: 1.15;
+	font-size: 1.7rem;
+	line-height: 1.15;
 }
 
 .resume.is-print h2 {
-  font-size: 0.5rem;
-  letter-spacing: 0.05em;
-  margin-top: 8px;
-  margin-bottom: 3px;
+	font-size: 0.5rem;
+	letter-spacing: 0.05em;
+	margin-top: 8px;
+	margin-bottom: 3px;
+
+	/* keep headings with content */
+	break-after: avoid;
+	page-break-after: avoid;
 }
 
 /* ===== Print: Skills tightening ===== */
 
 .resume.is-print .skills-grid {
-  margin-top: 0.5rem; /* was ~1rem+ */
+	margin-top: 0.5rem; /* was ~1rem+ */
 }
 
 .resume.is-print .skills-card ul {
-  margin-top: 4px; /* tighter bullets */
+	margin-top: 4px; /* tighter bullets */
+}
+
+/* Projects */
+.resume.is-print .resume-projects article {
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+.resume.is-print .resume-projects h3 {
+	font-size: 0.9rem;
+	line-height: 1.15;
+	margin-bottom: 2px;
 }
 
 /* Print: slightly tighter education block */
 /* ===== Print: Education tightening ===== */
 
 .resume.is-print .education-item {
-  gap: 0.25rem; /* tighten flex stack */
+	gap: 0.25rem; /* tighten flex stack */
 }
 
 .resume.is-print .education-item p {
-  margin-top: 0.1rem;
+	margin-top: 0.1rem;
 }
 
 .resume.is-print .education-lead {
-  margin-top: 2px;
+	margin-top: 2px;
 }
 
 /* Slightly reduce vertical gaps between stacked text blocks */
 .resume.is-print p + p {
-  margin-top: 0.2rem;
+	margin-top: 0.2rem;
 }
 
 .resume.is-print p,
 .resume.is-print li {
-  font-size: 0.75rem;
-  line-height: 1.2;
+	font-size: 0.75rem;
+	line-height: 1.2;
 }
 
 .resume.is-print ul {
-  margin-top: 4px;
+	margin-top: 4px;
 }
 
 /* Reduce Tailwind's space-y-1 gaps in print */
 .resume.is-print .space-y-1 > :not([hidden]) ~ :not([hidden]) {
-  margin-top: 0.1rem;
+	margin-top: 0.1rem;
 }
 
 /* Card chrome removal in print */
 .resume.is-print article {
-  border: none !important;
-  padding: 0 !important;
+	border: none !important;
+	padding: 0 !important;
 }
 
 .resume.is-print .container {
-  max-width: 48rem;
+	max-width: 48rem;
 }
 
 /* Print link behavior */
 .resume.is-print a {
-  word-break: break-all;
-  text-decoration-color: rgba(0, 0, 0, 0.4);
+	word-break: break-all;
+	text-decoration-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Slightly more vertical spacing for URL lists in print */
 .resume.is-print .resume-links__column {
-  gap: 0.5rem;
+	gap: 0.5rem;
 }
 
 .resume.is-print .project-links__column {
-  gap: 0.5rem;
+	gap: 0.5rem;
 }
 
 .resume.is-print .project-links {
-  margin-top: 0.75rem;
+	margin-top: 0.75rem;
 }
 
 @media print {
-  /* Keep Education together so it doesn’t spill a few lines onto page 3 */
-  .resume.is-print .resume-education {
-    break-inside: auto;
-    page-break-inside: auto;
-  }
+	.resume.is-print section:nth-of-type(3) article {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
 
-  /* Tighten Education rows */
-  .resume.is-print .resume-education article {
-    margin-bottom: 10px;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
+	/* Chrome print pagination + flex is buggy: disable flex in Education cards */
+	.resume.is-print .resume-education .education-item > div {
+		display: block !important;
+	}
 
-  .resume.is-print .resume-education p,
-  .resume.is-print .resume-education li {
-    line-height: 1.2;
-  }
+	/* Keep the Education heading with at least the first item */
+	.resume.is-print .resume-education {
+		margin-top: 6px;
+		break-before: auto;
+		page-break-before: auto;
+	}
 
-  .resume.is-print .resume-education ul {
-    margin-top: 1px;
-  }
+	.resume.is-print .education-meta {
+		margin-top: 0;
+		line-height: 1.1;
+	}
+
+	/* Tighten Education rows */
+	.resume.is-print .resume-education article {
+		break-inside: auto;
+		page-break-inside: auto;
+	}
+
+	.resume.is-print .resume-education > .mt-4 {
+		margin-top: 4px !important;
+	}
+
+	.resume.is-print
+		.resume-education
+		.space-y-6
+		> :not([hidden])
+		~ :not([hidden]) {
+		margin-top: 6px !important;
+	}
+
+	.resume.is-print .resume-education .education-item > div {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	.resume.is-print .resume-education .education-item span,
+	.resume.is-print .resume-education .education-item p,
+	.resume.is-print .resume-education .education-item h3 {
+		list-style: none !important;
+	}
+
+	.resume.is-print .resume-experience ul,
+	.resume.is-print .resume-projects ul {
+		margin-top: 2px;
+	}
+
+	.resume.is-print .resume-experience li,
+	.resume.is-print .resume-projects li {
+		line-height: 1.1;
+	}
+
+	.resume.is-print .resume-education p,
+	.resume.is-print .resume-education li {
+		line-height: 1.2;
+	}
+
+	.resume.is-print .resume-education ul {
+		margin-top: 1px;
+	}
 }

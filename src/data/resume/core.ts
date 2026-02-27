@@ -2,19 +2,19 @@
 import type { ResumeCore } from "./types";
 
 export const resumeCore: ResumeCore = {
-  name: "David Moriarty",
-  title: "Full-Stack Software Developer",
-  location: "London, ON",
-  email: "davidmoriarty@icloud.com",
-  links: {
-    portfolio: "https://davidmoriarty.dev",
-    github: "https://github.com/davidmoriarty",
-    linkedin: "https://www.linkedin.com/in/david-moriarty-248b4970",
-  },
-  summary: [
-    "Full-stack engineer experienced in designing and shipping SQL-backed web applications across backend and frontend layers.",
-    "Builds accessible, performant UIs and pragmatic backends with clean API boundaries.",
-    "Comfortable shipping end-to-end features—from architecture and data modeling to UI polish and deployment.",
-  ],
-  sectionOrder: ["summary", "skills", "projects", "experience", "education"],
+	name: "David Moriarty",
+	title: "Full-Stack TypeScript Engineer",
+	location: "London, ON",
+	email: "davidmoriarty@icloud.com",
+	links: {
+		portfolio: "https://davidmoriarty.dev",
+		github: "https://github.com/davidmoriarty",
+		linkedin: "https://www.linkedin.com/in/david-moriarty-248b4970",
+	},
+	summary: [
+		"Full-stack TypeScript engineer building production-ready SaaS systems with React, Node.js/Bun, and PostgreSQL.",
+		"Designs secure authentication and authorization layers (JWT with refresh token rotation, RBAC, tenant-scoped data models).",
+		"Ships end-to-end features with clean API boundaries, predictable state/data flows, and deployment on Fly.io + Cloudflare Pages.",
+	],
+	sectionOrder: ["summary", "skills", "projects", "experience", "education"],
 };

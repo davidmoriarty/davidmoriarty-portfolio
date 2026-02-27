@@ -78,7 +78,7 @@ export const projects: PortfolioProject[] = [
 		description:
 			"Fundamentals-first Express app with sessions, SQLite persistence, and a server-rendered dashboard for task management.",
 		why: "Demonstrate classic backend patterns common in production Express apps: sessions, auth, CRUD, and server-rendered UI.",
-		stack: "Node.js + Express + EJS + SQLite (better-sqlite3)",
+		stack: "Node.js + Express.js + EJS + SQLite (better-sqlite3)",
 		repoUrl: "https://github.com/davidmoriarty/task-ledger",
 		liveUrl: "https://task-ledger.davidmoriarty.dev",
 		features: [
@@ -148,7 +148,14 @@ export const projects: PortfolioProject[] = [
 			"Performance- and mobile-first layout",
 			"SEO and business listing maintenance (Google Business Profile)",
 		],
-		tags: ["Astro", "Tailwind", "Content Ops", "Small Business"],
+		tags: [
+			"Astro",
+			"Tailwind",
+			"SEO",
+			"Performance",
+			"Accessibility",
+			"Content Ops",
+		],
 		ogImage: "/images/og/outsiders-hair-boutique.png",
 		screenshots: {
 			light: [
