@@ -2,17 +2,24 @@
 import { cn } from "../utils/cn";
 import { tagIcons } from "../utils/tagIcons";
 
+interface Screenshots {
+  light: string[];
+  dark: string[];
+}
+
 interface Props {
   title: string;
   description: string;
   href: string;
   tags?: string[];
-  screenshots?: string[];
+  ogImage?: string;
+  screenshots?: Screenshots;
 }
 
-const { title, description, href, tags = [], screenshots = [] } = Astro.props;
+const { title, description, href, tags = [], ogImage, screenshots } = Astro.props;
 
-const screenshot = screenshots[0];
+const lightSrc = screenshots?.light?.[0];
+const darkSrc = screenshots?.dark?.[0];
 const truncatedDescription = description.length > 60 ? description.slice(0, 57) + "…" : description;
 ---
 
@@ -24,13 +31,16 @@ const truncatedDescription = description.length > 60 ? description.slice(0, 57) 
   )}
 >
   {
-    screenshot && (
-      <img
-        src={screenshot}
-        alt={`${title} screenshot`}
-        class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        loading="lazy"
-      />
+    lightSrc && (
+      <picture>
+        {darkSrc && <source srcset={darkSrc} media="(prefers-color-scheme: dark)" />}
+        <img
+          src={lightSrc}
+          alt={`${title} screenshot`}
+          class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
+        />
+      </picture>
     )
   }
 

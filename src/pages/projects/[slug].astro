@@ -1,10 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Section from "../../components/Section.astro";
 import Container from "../../components/Container.astro";
 import Heading from "../../components/Heading.astro";
-import { cn } from "../../utils/cn";
+import Section from "../../components/Section.astro";
 import { projects } from "../../data/projects";
+import Layout from "../../layouts/Layout.astro";
+import { cn } from "../../utils/cn";
 import { tagColors } from "../../utils/tagColors";
 import { tagIcons } from "../../utils/tagIcons";
 
@@ -16,15 +16,36 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const project = projects.find((p) => p.slug === slug);
+
 if (!project) {
   throw new Error(`Project not found: ${slug}`);
 }
 
-const { title, description, tags = [], screenshots = [], features = [], repoUrl, liveUrl } = project;
+const {
+  title,
+  description,
+  tags = [],
+  ogImage: projectOgImage,
+  screenshots,
+  features = [],
+  repoUrl,
+  liveUrl,
+} = project;
 
-const ogImage = screenshots[0] ?? "/images/og/default.png";
+// Normalize screenshots (new shape)
+const lightShots = screenshots?.light ?? [];
+const darkShots = screenshots?.dark ?? [];
+const allShots = [...lightShots, ...darkShots];
+
+// Use a safe default for OG and page hero image
+const heroLight = lightShots[0];
+const heroDark = darkShots[0];
+const hasAnyHero = Boolean(heroLight);
+
+// OG Image is separate from screenshots now
+const ogImage = projectOgImage ?? "/images/og/default.png";
+
 const pageUrl = new URL(`/projects/${project.slug}/`, Astro.site).toString();
-const screenshot = screenshots[0];
 
 // JSON-LD Project (SoftwareSourceCode works well for GitHub projects)
 const projectJsonLd = {
@@ -36,7 +57,7 @@ const projectJsonLd = {
   codeRepository: repoUrl,
   programmingLanguage: (tags ?? []).filter(Boolean),
   keywords: (tags ?? []).filter(Boolean).join(", "),
-  image: screenshots.map((s) => (s.startsWith("http") ? s : new URL(s, Astro.site).toString())),
+  image: allShots.map((s) => (s.startsWith("http") ? s : new URL(s, Astro.site).toString())),
   author: {
     "@type": "Person",
     name: "David Moriarty",
@@ -57,10 +78,13 @@ const projectJsonLd = {
     </Container>
 
     {
-      screenshot && (
+      hasAnyHero && (
         <Container class="py-5 max-w-5xl">
           <figure class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
-            <img src={screenshot} alt={`${title} screenshot`} class="w-full h-auto" loading="lazy" />
+            <picture>
+              {heroDark && <source srcset={heroDark} media="(prefers-color-scheme: dark)" />}
+              <img src={heroLight} alt={`${title} screenshot`} class="w-full h-auto" loading="lazy" />
+            </picture>
           </figure>
         </Container>
       )
