@@ -3,7 +3,7 @@ import type { ResumeCore } from "./types";
 
 export const resumeCore: ResumeCore = {
 	name: "David Moriarty",
-	title: "Full-Stack TypeScript Engineer",
+	title: "Full-Stack Engineer",
 	location: "London, ON",
 	email: "davidmoriarty@icloud.com",
 	links: {
@@ -12,9 +12,9 @@ export const resumeCore: ResumeCore = {
 		linkedin: "https://www.linkedin.com/in/david-moriarty-248b4970",
 	},
 	summary: [
-		"Full-stack TypeScript engineer building production-ready SaaS systems with React, Node.js/Bun, and PostgreSQL.",
-		"Designs secure authentication and authorization layers (JWT with refresh token rotation, RBAC, tenant-scoped data models).",
-		"Ships end-to-end features with clean API boundaries, predictable state/data flows, and deployment on Fly.io + Cloudflare Pages.",
+		"Full-stack engineer with experience building production-ready web applications using Ruby on Rails, TypeScript, React, and PostgreSQL.",
+		"Designs secure authentication and authorization layers, including sessions, JWT-based flows, refresh token rotation, and role-based access control.",
+		"Builds end-to-end features with clear API boundaries, relational data models, and production-focused deployment workflows.",
 	],
 	sectionOrder: ["summary", "skills", "projects", "experience", "education"],
 };

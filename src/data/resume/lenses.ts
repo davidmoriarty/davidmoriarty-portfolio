@@ -10,10 +10,11 @@ export const resumeLenses: ResumeLensConfig[] = [
 			projects: ["note-manager", "task-manager", "task-ledger"],
 			skillModules: [
 				"typescript-runtime",
+				"rails-fullstack",
 				"api-design",
 				"backend-auth",
 				"databases-sql",
-				"mvc-frameworks",
+				"mvc-architecture",
 				"frontend-accessibility",
 				"tooling-practices",
 			],
@@ -42,11 +43,12 @@ export const resumeLenses: ResumeLensConfig[] = [
 		recommended: {
 			projects: ["note-manager", "task-ledger", "task-manager"],
 			skillModules: [
+				"rails-fullstack",
 				"typescript-runtime",
 				"api-design",
 				"backend-auth",
 				"databases-sql",
-				"mvc-frameworks",
+				"mvc-architecture",
 				"security-basics",
 				"tooling-practices",
 			],

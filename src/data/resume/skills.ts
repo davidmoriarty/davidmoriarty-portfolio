@@ -49,13 +49,22 @@ export const resumeSkillModules: ResumeSkillModule[] = [
 		tags: ["JavaScript"],
 	},
 	{
-		id: "mvc-frameworks",
-		label: "MVC Frameworks",
+		id: "rails-fullstack",
+		label: "Ruby on Rails",
 		bullets: [
-			"Build structured web applications using MVC patterns with clear separation of routes, controllers, and data layers.",
-			"Experience with Ruby on Rails, PHP-based backends, and structured Express-style MVC applications",
+			"Build full-stack web applications using Ruby on Rails with conventional MVC structure, RESTful routing, and ActiveRecord-backed data models.",
+			"Implement authentication, authorization, and structured business workflows using Rails conventions and supporting service layers.",
 		],
-		tags: ["Rails", "PHP", "Express", "MVC", "REST"],
+		tags: ["Ruby", "Rails", "ActiveRecord", "REST"],
+	},
+	{
+		id: "mvc-architecture",
+		label: "MVC Architecture",
+		bullets: [
+			"Design web applications using MVC patterns with clear separation of concerns between routing, controllers, business logic, and data layers.",
+			"Apply consistent structure across frameworks to keep codebases maintainable, testable, and easy to reason about.",
+		],
+		tags: ["MVC", "Architecture", "Separation of Concerns"],
 	},
 	{
 		id: "performance",
