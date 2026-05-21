@@ -65,7 +65,16 @@ export const resumeSkillModules: ResumeSkillModule[] = [
 			"Apply consistent structure across frameworks to keep codebases maintainable, testable, and easy to reason about.",
 		],
 		tags: ["MVC", "Architecture", "Separation of Concerns"],
-	},
+  },
+  {
+    id: "platform-infrastructure",
+    label: "Platform & Infrastructure",
+    bullets: [
+      "Work with containerized development and deployment workflows using Docker, Linux-based environments, CI, and environment configuration.",
+      "Build and debug backend services with attention to logs, runtime behavior, deployment boundaries, and production operability.",
+    ],
+    tags: ["Docker", "Linux", "CI/CD", "Deployments", "Observability"],
+  },
 	{
 		id: "performance",
 		label: "Performance & UX",
@@ -94,14 +103,14 @@ export const resumeSkillModules: ResumeSkillModule[] = [
 		tags: ["Security", "OWASP", "CSP", "HSTS", "Cookies"],
 	},
 	{
-		id: "tooling-practices",
-		label: "Tooling & Engineering Practices",
-		bullets: [
-			"Maintain clean repos with consistent conventions, scripts, and documentation.",
-			"Ship iteratively with a focus on readability, debugging, basic testing, and production delivery (CI, deployments, environment config).",
-		],
-		tags: ["Tooling", "Docker", "CI/CD"],
-	},
+    id: "tooling-practices",
+    label: "Tooling & Engineering Practices",
+    bullets: [
+      "Maintain clean repos with consistent conventions, scripts, documentation, and repeatable development workflows.",
+      "Ship iteratively with a focus on readability, debugging, testing, CI, deployments, and environment configuration.",
+    ],
+    tags: ["Tooling", "Testing", "CI/CD", "Debugging"],
+  },
 	{
 		id: "typescript-frameworks",
 		label: "TypeScript & Modern Frontend",
